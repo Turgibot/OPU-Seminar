@@ -11,7 +11,11 @@ function loadFile(filePath) {
   return result;
 }
 frags = loadFile(`video_slides/${slide}.txt`)
+note = loadFile(`notes/${slide}.txt`)
 document.write(`
 <section data-background-video="./video_slides/${slide}.mp4" data-background-color="#000000" id="vid" type="videoslide">
  ${frags}
+ <aside class="notes">
+    ${note}
+  </aside>
 </section>`)
