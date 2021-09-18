@@ -1,1 +1,2 @@
-<aside class="notes">This is a seminat about ...</aside>
+<aside class="notes">So the first topic that I would represent today is neuromorphic stereo vision. Inorder for me to so, I would like to start by briefly giving you all some background information about the subject of conventional stereo vision.
+             I'll also present some slides with information about neuromorphic cameras and then we'll dive for a deeper explanation of the neuromorphic stereo vision model, decribed in the paper I reviewed</aside>
