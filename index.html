@@ -11,14 +11,18 @@
 		<link rel="stylesheet" href="dist/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
+		<link rel="stylesheet" href="dist/theme/black.css">	</head>
 	<body>
 		
 		<div class="reveal">
 			<div class="slides">				
 				<script src="js/add_video_slide.js" slide_scene="Title"></script>
 				<script src="js/add_video_slide.js" slide_scene="Itinerary"></script>
+				<script src="js/add_video_slide.js" slide_scene="Overview"></script>
+				<script src="js/add_video_slide.js" slide_scene="StereoTitle"></script>
+				<script src="js/add_video_slide.js" slide_scene="NeuromorphicCamera"></script>
+				<!-- <script src="js/add_video_slide.js" slide_scene="ConStereoTitle"></script>  -->
+				<!-- <script src="js/add_video_slide.js" slide_scene="ClassicalExample"></script>  -->
 				<section>TESTING</section>
 			</div>
 		</div>
@@ -27,7 +31,7 @@
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/highlight/highlight.js"></script> 
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -36,7 +40,7 @@
 				hash: false,
 				transition: 'none',
 				progress: false,
-
+				autoPlayMedia: true,
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});

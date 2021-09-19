@@ -48,11 +48,9 @@ class SlideScene(Scene):
     
     def create_note(self, note="Nothing to say"):
         out=""
-        dirname=os.path.dirname(self.notes_dir)
+        dirname=self.notes_dir
         if not os.path.exists(dirname):
                 os.makedirs(dirname)
         out=f'<aside class="notes">%s</aside>\n'%(note)
-        # with open("%s/%s.txt"%(dirname,type(self).__name__),'w') as f:
-        with open("../notes/Title.txt",'w') as f:
+        with open("%s/%s.txt"%(dirname,type(self).__name__),'w') as f:
             f.write(out)
-            print("%s/%s.txt"%(dirname,type(self).__name__))

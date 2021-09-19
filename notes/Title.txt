@@ -1,2 +1,3 @@
-<aside class="notes">So the first topic that I would represent today is neuromorphic stereo vision. Inorder for me to so, I would like to start by briefly giving you all some background information about the subject of conventional stereo vision.
-             I'll also present some slides with information about neuromorphic cameras and then we'll dive for a deeper explanation of the neuromorphic stereo vision model, decribed in the paper I reviewed</aside>
+<aside class="notes">Hello Everyone, my name is Guy Tordjman and today I'll present my seminar. This seminar reviews articles in 2 fields of neuromorphic engineering in robotics so I'm positive you'll find them very interesting.
+             The First topic is neuromorphic stereo vision and the second one is neuromorphic Robot controller.
+ In case you have question please feel free to stop me at any time.</aside>

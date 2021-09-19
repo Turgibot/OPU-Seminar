@@ -1,0 +1,1 @@
+<aside class="notes">Stereo-vision refers to the method of recovering depth information from both eyes,             or in the artificial context, machine stereo vision, also referred to as stereoscopic vision, extracts the data from two visual sensors.</aside>
