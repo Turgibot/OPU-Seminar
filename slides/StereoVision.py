@@ -1,6 +1,9 @@
 from numpy import number
 from manim_slide import *
 import cv2
+import math
+import random
+
 
 class Header():
     def get(self):
@@ -314,7 +317,7 @@ class EventModelPart1(SlideScene):
     def construct(self):
         note = "As We have seen a traditional camera outputs frames at fixed time intervals,\
             By contrast, event camera outputs asynchronous events at microseconds resolution. \
-                An event is generated each time a single pixel detects an intensity changes value.\
+                An event is generated every time a single pixel detects a change in intensity value.\
                     each event consists of the following data: \
                         1. The timestamp at the time of the trigering. \
                             2. The x and y pixel coordinates in the sensor. \
@@ -332,9 +335,9 @@ class EventModelPart1(SlideScene):
         self.play(ReplacementTransform(title_camera, title_event))
         
         #Clock
-        num = DecimalNumber(number=0, num_decimal_places=4)
-        unit = Tex("$sec$").next_to(num, RIGHT*0.5)
-        clock = VGroup(num, unit).shift(RIGHT*2+UP)
+        num = DecimalNumber(number=0, num_decimal_places=4).shift(RIGHT*3+UP*1.5).scale(0.7)
+        unit = Tex("$sec$").next_to(num, RIGHT*0.5).scale(0.7)
+        clock = VGroup(num, unit)
         border = Rectangle(fill_opacity=1, fill_color=BLACK, stroke_color=BLUE)
         border.round_corners().surround(clock)
         self.add(border, clock)
@@ -342,30 +345,62 @@ class EventModelPart1(SlideScene):
         #Graph for frames
         x_start = 0
         x_finish = 4
-        x_axis = NumberLine(x_range=[x_start, x_finish, 1], length=7, color=BLUE, include_numbers=True)
-        self.add(x_axis)
-        def add_arrow_to_axis(axis, t, interval=0.2, up=True):
-            if((t%interval)<1):
-                if up:
-                    pointer = Vector(UP)
-                else:
-                    pointer = Vector(DOWN)
-            
-                pointer.next_to(axis.n2p(t), UP)
-                self.add(pointer)
+        x_axis = NumberLine(x_range=[x_start, x_finish, 1], length=7, color=GREEN, include_numbers=True).shift(DOWN*0.5)
+        axis_txt = Text("Traditional camera outputs frames at fixed time intervals.").scale(0.3).next_to(x_axis, DOWN)
+        self.play(Create(x_axis), Write(axis_txt))
+        poligons = VGroup()
+        def add_image_to_axis(axis, p, poligons=poligons):
+            image = Polygon([0, 0, 0], [0, 0.4, 0], [0.3, 0.6, 0], [0.3, 0.2, 0], color=RED)
+            p = axis.n2p(p)
+            p[0]+=0.1    
+            image.next_to(p, UP)
+            self.add(image)
+            poligons += image
 
         num.add_updater(lambda m, dt: m.set_value(m.get_value()+dt))
-        num.add_updater(lambda m, dt: add_arrow_to_axis(x_axis, m.get_value()) if (m.get_value()%0.2)<0.01667 and (m.get_value()%0.2)>=0.0166 else None)
-        self.wait(1)
+        num.add_updater(lambda m, dt: add_image_to_axis(x_axis, m.get_value()) if (m.get_value()%0.3)<0.01667 and (m.get_value()%0.3)>=0.0166 else None)
+        self.wait(x_finish)
+        num.clear_updaters()
+        
+        #replace graph with event graph
+        
+        x_finish = 2
+        x_axis_event = NumberLine(x_range=[x_start, x_finish, 1], length=7, color=PURPLE, include_numbers=True).shift(DOWN*0.5)
+        self.play(FadeOut(poligons, axis_txt), ReplacementTransform(x_axis, x_axis_event))
+        axis_txt = Text("Event camera outputs asynchronous events at microseconds resolution.").scale(0.3).next_to(x_axis_event, DOWN*3.1)
+        self.play(Write(axis_txt))
+        pointers = VGroup()
+        def add_event_to_axis(axis, time, pointers=pointers):
+            p = axis.n2p(time)
+            p[0]+=0.1    
+            num = random.random()
+            if num < 0.4:
+                pointer = Vector(UP, color=DARK_BLUE, stroke_width=1).next_to(p, UP)
+            elif num < 0.76:
+                pointer = Vector(DOWN, color=RED, stroke_width=1).next_to(p, DOWN)
+            else:
+                return
+            self.add(pointer)
+            pointers += pointer
 
-class GraphX(SlideScene):
-    def construct(self):
+        num.set_value(0)
+        num.add_updater(lambda m, dt: m.set_value(m.get_value()+dt))
+        num.add_updater(lambda m, dt: add_event_to_axis(x_axis_event, m.get_value()) if (m.get_value())<1.5 or (m.get_value())>=1.85 else None)
+        self.wait(x_finish)
+        num.clear_updaters()
+        self.wait(3)
 
-        l0 = NumberLine(
-            x_range=[0, 10, 1],
-            length=10,
-            color=BLUE,
-            include_numbers=False,
-            label_direction=UP)
-        self.play(Write(l0))
-        time = ValueTracker(0)
+        pointer = Vector(DOWN, color=RED, stroke_width=1)
+        pointer_cp = pointer.copy().shift(LEFT*2+UP*1.5)
+        self.play(FadeOut(x_axis_event, axis_txt, pointers), FadeIn(pointer))
+        self.play(ReplacementTransform(pointer, pointer_cp), run_time=2)
+
+        formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
+        self.play(Write(formula0))
+        self.wait(2)
+        formula1 = Tex(r"$\left\langle x,y \right\rangle $").next_to(formula0, RIGHT)
+        self.play(Write(formula1))
+        self.wait(2)
+        formula2 = Tex(r"$, p \right\rangle $").next_to(formula1, RIGHT)
+        self.play(Write(formula2))
+
