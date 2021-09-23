@@ -1,1 +1,1 @@
-<aside class="notes">Read the slide.</aside>
+<aside class="notes">When the disk stops rotating, there is no motion, hence the event camera does not transmit event            which results in a drastic reduction of band width. </aside>

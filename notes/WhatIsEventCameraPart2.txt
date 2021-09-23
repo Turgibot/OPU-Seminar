@@ -1,1 +1,1 @@
-<aside class="notes">Read the slide.</aside>
+<aside class="notes">Event camears were first commercialized in 2008 by Toby Delbruck from the university of Zurich             under the name of DVS which stands for Dynamic Vision Sensor.                 The sensor measures only motion in the scene. An event camera has smart pixels that are all                     independent of each other - every time that a single pixel detects motion, that pixel trigers an event.</aside>
