@@ -181,7 +181,7 @@ class WhatIsEventCameraPart3(SlideScene):
 class WhatIsEventCameraPart4(SlideScene):
     def construct(self):
         note = "When the disk stops rotating, there is no motion, hence the event camera does not transmit event\
-            which results in a drastic reduction of band width caompares to the standard camera that keepts putting out the same frame over and over again. "
+            which results in a drastic reduction of band width compares to the standard camera that keepts putting out the same frame over and over again. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -229,7 +229,7 @@ class WhatIsEventCameraPart5(SlideScene):
                 1. a very low latency with a resolution of microsecond\
                     2. no motion blur.\
                         3. ultra low power consumption - an event camera on average consumes 1 milliWatt instead of 1 Watt in standard camera.\
-                            4. a very high dynamic range which is 8 orders of magnitude superior of standard cameras "
+                            4. a very high dynamic range which is 8 orders of magnitude superior to a standard camera"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -269,10 +269,10 @@ class WhatIsEventCameraPart5(SlideScene):
 
 class Football(SlideScene):
     def construct(self):
-        note = "Here we have a recording of a guy catching a football, taken with a davis camera which is an event camera that outputs both events and frames.\
+        note = "This is an example of a real output of an event camera where we have a guy catching a football, taken with a davis camera which is an event camera that outputs both events and frames.\
             In this case the the frame are being output at a rate of 6 Hz while a window of 10 milliseconds of events is shown. The frame data rate pick value mesured at th 30 kilo Hz which mean that\
                 So we are talking of faster analysis of the data which is a great benefit especially in real-time applications. \
-                    So I said the word event many times, I would like to finish this introduction by talking about the event generation process."
+                    So you have heard me repeating the word 'EVENT' many times, so I would like to finish this introduction by talking about events are generated."
         self.create_note(note)
         for x in Header().get():
             self.add(x)

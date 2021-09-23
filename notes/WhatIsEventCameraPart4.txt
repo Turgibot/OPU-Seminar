@@ -1,1 +1,1 @@
-<aside class="notes">When the disk stops rotating, there is no motion, hence the event camera does not transmit event            which results in a drastic reduction of band width. </aside>
+<aside class="notes">When the disk stops rotating, there is no motion, hence the event camera does not transmit event            which results in a drastic reduction of band width compares to the standard camera that keepts putting out the same frame over and over again. </aside>
