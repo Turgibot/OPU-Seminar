@@ -392,7 +392,7 @@ class EventModelPart1(SlideScene):
 
         pointer = Vector(DOWN, color=RED, stroke_width=1)
         pointer_cp = pointer.copy().shift(LEFT*2+UP*1.5)
-        self.play(FadeOut(x_axis_event, axis_txt, pointers), FadeIn(pointer))
+        self.play(FadeOut(x_axis_event, axis_txt, pointers, clock), FadeIn(pointer))
         self.play(ReplacementTransform(pointer, pointer_cp), run_time=2)
 
         formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
@@ -403,4 +403,68 @@ class EventModelPart1(SlideScene):
         self.wait(2)
         formula2 = Tex(r"$, p \right\rangle $").next_to(formula1, RIGHT)
         self.play(Write(formula2))
+
+class EventModelPart2(SlideScene):
+    def construct(self):
+        note = "Looking at the circuit diagram of a single pixel we can see that : \
+            1. The photoreceptor diode connected to a logritmic calculation module.\
+                2. That capacively copuled to a change amplifier that holds the previous signal value and out puts the differnce between the values of the current and previous signals. \
+                    Everytime an event is triggered, this subcircuit gets reset and the current value is stored.\
+                    3. Then the difference signal is driven into two comparators that detect on and off brigntness changes. \
+                        If the signal went up and pass an 'ON' threshold  - an 'ON' event is triggered and viceversa for an 'OFF' event in the bottom comparator."
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Lichtsteiner et al. A 128x128 120 dB 15µs Latency Asynchronous Temporal Contrast Vision Sensor, IEEE Journal of Solid-State Circuits, 2008", font_size=11).shift(3.2*DOWN+2*RIGHT).scale(0.8)
+        self.add(name, source)
+        pointer_cp = Vector(DOWN, color=RED, stroke_width=1).shift(LEFT*2+UP*1.5)
+
+        formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
+        formula1 = Tex(r"$\left\langle x,y \right\rangle $").next_to(formula0, RIGHT)
+        formula2 = Tex(r"$, p \right\rangle $").next_to(formula1, RIGHT)
+        formula = Group(formula0, formula1, formula2)
+        self.add(formula0)
+        title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
+        self.add(title_event)
+
+        self.play(FadeOut(formula))
+        self.wait(2)
+
+        #add diagram       
+        diagram_txt = Text("Event Camera Pixel Circuit Diagram").shift(UP*2+LEFT*2).scale(0.5)
+        self.play(Write(diagram_txt))
+        circuit_img = ImageMobject("../images/DVS_pixel.png")
+        self.play(FadeIn(circuit_img))
+
+class EventModelPart3(SlideScene):
+    def construct(self):
+        note = "This graph describes the log Intensity at a Single Pixel x over time. \
+            As you can see a POSITIVE RED event was triggered everytime the log intensity increased passed a positive contrast sentitivity threshold -  \
+            And a NEGATIVE BLUE event was triggered everytime the log intensity descreased passed a negative contrast sentitivity threshold. \
+                END OF INTRODUCTION"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("http://rpg.ifi.uzh.ch/docs/EventVisionSurvey.pdf", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+       
+        title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
+        self.add(title_event)
+
+        #shrink diagram       
+        circuit_img = ImageMobject("../images/DVS_pixel.png")
+        diagram_txt = Text("Event Camera Pixel Circuit Diagram").shift(UP*2+LEFT*2).scale(0.5)
+        self.add(diagram_txt, circuit_img)
+        circuit_img_cp = circuit_img.copy().shift(RIGHT*3.5+UP*1.5).scale(0.5)
+        pixel_txt = Text("The Intensity at a Single Pixel").shift(UP+LEFT*2).scale(0.5)
+        self.play(ReplacementTransform(circuit_img, circuit_img_cp), Unwrite(diagram_txt))        
+        self.play(Write(pixel_txt))
+
+        intensity_img = ImageMobject("../images/operation.png").scale(0.85).shift(DOWN+LEFT*1.7)
+        self.play(FadeIn(intensity_img))
+
+
+
 
