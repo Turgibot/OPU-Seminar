@@ -118,7 +118,7 @@ class WhatIsEventCameraPart2(SlideScene):
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Ultra low power consumption (1 mW instead of 1W in standard ccd camera).").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("High dynamic range (140 dB instead of 80 dB in a standard ccd camera).").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
-        bul4 = Text("Low latency (~1 ms)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
        
         self.play(Write(bul0), run_time = 0.75)
@@ -148,14 +148,11 @@ class WhatIsEventCameraPart3(SlideScene):
         title_camera = Text("What is an Event camera").shift(UP*3).scale(0.7)
         self.add(title_camera)
 
-        dvs_img = ImageMobject('../images/DVS_hand.jpg').scale(0.5).shift(LEFT*3)
-        dvs_txt = Text("The Dynamic Vision Sensor (DVS)").scale(0.3).next_to(dvs_img, DOWN)
-
         bul0 = Text("First commercialized in 2008 by Toby Delbruck(UZH&ETH under the name of Dynamic Vision Sensor (DVS).)").scale(0.3).shift(LEFT*1.2 + 2*UP)
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Ultra low power consumption (1 mW instead of 1W in standard ccd camera).").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("High dynamic range (140 dB instead of 80 dB in a standard ccd camera).").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
-        bul4 = Text("Low latency (~1 ms)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
 
         bullets = Group(bul0,bul1,bul2,bul3,bul4,bul5)
@@ -170,6 +167,7 @@ class WhatIsEventCameraPart3(SlideScene):
         while flag :
             flag, frame = cap.read()
             if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
                 self.add(frame_img)
                 self.wait(0.042)
@@ -191,14 +189,11 @@ class WhatIsEventCameraPart4(SlideScene):
         title_camera = Text("What is an Event camera").shift(UP*3).scale(0.7)
         self.add(title_camera)
 
-        dvs_img = ImageMobject('../images/DVS_hand.jpg').scale(0.5).shift(LEFT*3)
-        dvs_txt = Text("The Dynamic Vision Sensor (DVS)").scale(0.3).next_to(dvs_img, DOWN)
-
         bul0 = Text("First commercialized in 2008 by Toby Delbruck(UZH&ETH under the name of Dynamic Vision Sensor (DVS).)").scale(0.3).shift(LEFT*1.2 + 2*UP)
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Ultra low power consumption (1 mW instead of 1W in standard ccd camera).").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("High dynamic range (140 dB instead of 80 dB in a standard ccd camera).").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
-        bul4 = Text("Low latency (~1 ms)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
 
         bullets = Group(bul0,bul1,bul2,bul3,bul4,bul5)
@@ -212,6 +207,7 @@ class WhatIsEventCameraPart4(SlideScene):
         while flag :
             flag, frame = cap.read()
             if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
                 self.add(frame_img)
                 self.wait(0.042)
@@ -246,7 +242,7 @@ class WhatIsEventCameraPart5(SlideScene):
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Ultra low power consumption (1 mW instead of 1W in standard ccd camera).").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("High dynamic range (140 dB instead of 80 dB in a standard ccd camera).").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
-        bul4 = Text("Low latency (~1 ms)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
 
         bullets = Group(bul0,bul1,bul2,bul3,bul4,bul5)
@@ -260,6 +256,7 @@ class WhatIsEventCameraPart5(SlideScene):
         while flag :
             flag, frame = cap.read()
             if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
                 self.add(frame_img)
                 self.wait(0.042)
@@ -287,7 +284,7 @@ class Football(SlideScene):
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Ultra low power consumption (1 mW instead of 1W in standard ccd camera).").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("High dynamic range (140 dB instead of 80 dB in a standard ccd camera).").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
-        bul4 = Text("Low latency (~1 ms)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
 
         bullets = Group(bul0,bul1,bul2,bul3,bul4,bul5)
@@ -306,7 +303,46 @@ class Football(SlideScene):
         while flag :
             flag, frame = cap.read()
             if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 frame_img = ImageMobject(frame).scale(1.1)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+
+class Visualization(SlideScene):
+    def construct(self):
+        note = "In this slide we see conventional frames on the top and 2 different ways of visualizing the out put of an event camera on the bottom. \
+            On the left we see a 3D space time visualization where the events are visualized in an x y t volume. \
+                BLUE corresponds to positive changes of intensity and The RED events correspond to negative change of intensity. \
+                    On the right we see event in the form of frames, in this case each frame shows the events that were recorded in the last 10 milllseconds, \
+                        However, this delta T parameter is configurable and we can go down in time to 1 micro-second"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("https://drive.google.com/file/d/1w7easbLhcHh-BoMFQq1RRt5RAjGkfk7u/view", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+        title_camera = Text("Output of an event camera").shift(UP*3).scale(0.7)
+        self.add(title_camera)
+
+
+       
+        self.play(FadeOut(title_camera))
+        title_camera = Text("Visualization of an event camera").shift(UP*3).scale(0.7)
+        self.play(Write(title_camera, run_time=0.5))
+        self.wait(1)
+        #include video
+        cap = cv2.VideoCapture("../media/videos/visualization.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.95).shift(LEFT*0.6)
                 self.add(frame_img)
                 self.wait(0.042)
                 self.remove(frame_img)
@@ -392,7 +428,7 @@ class EventModelPart1(SlideScene):
 
         pointer = Vector(DOWN, color=RED, stroke_width=1)
         pointer_cp = pointer.copy().shift(LEFT*2+UP*1.5)
-        self.play(FadeOut(x_axis_event, axis_txt, pointers, clock), FadeIn(pointer))
+        self.play(FadeOut(x_axis_event, axis_txt, pointers, clock, border), FadeIn(pointer))
         self.play(ReplacementTransform(pointer, pointer_cp), run_time=2)
 
         formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
@@ -441,8 +477,7 @@ class EventModelPart3(SlideScene):
     def construct(self):
         note = "This graph describes the log Intensity at a Single Pixel x over time. \
             As you can see a POSITIVE RED event was triggered everytime the log intensity increased passed a positive contrast sentitivity threshold -  \
-            And a NEGATIVE BLUE event was triggered everytime the log intensity descreased passed a negative contrast sentitivity threshold. \
-                END OF INTRODUCTION"
+            And a NEGATIVE BLUE event was triggered everytime the log intensity descreased passed a negative contrast sentitivity threshold."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -464,6 +499,63 @@ class EventModelPart3(SlideScene):
 
         intensity_img = ImageMobject("../images/operation.png").scale(0.85).shift(DOWN+LEFT*1.7)
         self.play(FadeIn(intensity_img))
+
+class EventModelPart4(SlideScene):
+    def construct(self):
+        note = "Here we see a list of Event camera manufacturers and some of their key properties, as you can see, their price is very high compared to a standard camera."
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("http://rpg.ifi.uzh.ch/docs/EventVisionSurvey.pdf", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+       
+        title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
+        self.add(title_event)
+        intensity_img = ImageMobject("../images/operation.png").scale(0.85).shift(DOWN+LEFT*1.7)
+        circuit_img_cp = ImageMobject("../images/DVS_pixel.png").shift(RIGHT*3.5+UP*1.5).scale(0.5)
+        pixel_txt = Text("The Intensity at a Single Pixel").shift(UP+LEFT*2).scale(0.5)
+        self.add(pixel_txt, circuit_img_cp,intensity_img)
+        self.play(FadeOut(pixel_txt, circuit_img_cp,intensity_img))
+
+        available_img = ImageMobject("../images/availability.png").scale(0.8).shift(DOWN*0.2)
+        available_txt = Text("Market Available Event Cameras").shift(UP*3).scale(0.7)
+        self.play(ReplacementTransform(title_event, available_txt))
+        self.play(FadeIn(available_img))
+
+class EventModelPart5(SlideScene):
+    def construct(self):
+        note = "Before I move on to reviewing the algorithm in the article, I just wanted to state that because the output of an event camera is asynchronous\
+             and it posseses no intensity information - but only binary intensity changes, traditional vision algorithms that are used on regular frame data \
+                 cannot be used on event camera data - \
+            Therefor a paradigm shift needs to be applied and example of that is in the article : "
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("http://rpg.ifi.uzh.ch/docs/EventVisionSurvey.pdf", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+    
+        available_img = ImageMobject("../images/availability.png").scale(0.8).shift(DOWN*0.2)
+        available_txt = Text("Market Available Event Cameras").shift(UP*3).scale(0.7)
+        self.add(available_txt, available_img)
+
+        self.play(FadeOut(available_txt, available_img))
+
+        dvs_img = ImageMobject('../images/DVS_hand.jpg').scale(0.4).shift(RIGHT*3.8)
+        dvs_txt = Text("The Dynamic Vision Sensor (DVS)").scale(0.25).next_to(dvs_img, DOWN)
+
+        txt1 = Text("Because event camera's output data is:").scale(0.5).shift(UP*1.5+LEFT*0.3)
+        txt2 = Text("Asynchronous").scale(0.4).next_to(txt1, DOWN).align_to(txt1, LEFT).shift(RIGHT*0.2)
+        txt3 = Text("No pixel intensity information").scale(0.4).next_to(txt2, DOWN).align_to(txt1, LEFT).shift(RIGHT*0.2)
+        txt4 = Text("Traditional vision algorithms cannot be used", color=RED).scale(0.55).shift(DOWN*1.75)
+
+        self.play(Write(txt1),FadeIn(dvs_img,dvs_txt))
+        self.play(Write(txt2))
+        self.play(Write(txt3))
+        self.wait(3)
+        self.play(Write(txt4))
+
 
 
 
