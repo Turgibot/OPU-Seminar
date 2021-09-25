@@ -16,7 +16,14 @@ manim StereoVision.py EventModelPart3
 manim StereoVision.py EventModelPart4
 manim StereoVision.py EventModelPart5
 
-echo End of introduction
+echo Article 1
+
+manim StereoVisionArticle.py StereoModelTitle
+manim StereoVisionArticle.py StereoCorrespondence1
+manim StereoVisionArticle.py StereoCorrespondence2
+manim StereoVisionArticle.py StereoCorrespondence3
+manim StereoVisionArticle.py StereoCorrespondence4
+manim StereoVisionArticle.py StereoCorrespondence5
 
 echo uploading to github
 
