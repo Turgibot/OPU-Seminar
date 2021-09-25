@@ -10,14 +10,17 @@ class Header():
 class Title(SlideScene):
     def construct(self):
         note = "Hello Everyone, my name is Guy Tordjman and today I'll present my seminar. This seminar reviews articles in 2 fields of neuromorphic engineering. \
-            The First topic is neuromorphic stereo vision and the second one is neuromorphic Robot PID controller.\
-                 In case you have question please feel free to stop me at any time."
+            The First topic is neuromorphic stereo vision and the second one is neuromorphic Robot PID controller."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
+        opu = Text("THE OPEN UNIVERSITY Of ISRAEL").scale(0.6).shift(UP*1.5)
+        seminar = Text("SEMINAR PRESENTATION").scale(0.6).next_to(opu, DOWN)
+        guy = Text("Guy Tordjman").scale(0.3).next_to(seminar, DOWN)
+        self.add(opu, seminar, guy)
+        
         cover = ImageMobject('../images/cover.png').scale(0.85)
-        self.add(cover)
-        self.play(FadeIn(cover), run_time=2)
+        self.play(FadeOut(seminar, guy, opu), FadeIn(cover), run_time=2)
         self.wait(5)
         name = Text("Guy Tordjman", font_size=11).shift(1*DOWN)
         self.add(name)

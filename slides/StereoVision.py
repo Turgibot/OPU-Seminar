@@ -15,12 +15,14 @@ class Header():
 
 class StereoVision(SlideScene):
     def construct(self):
-        note = "So the first topic that I would present today is neuromorphic stereo vision. And I would like to start with the definition\
+        note = "As I mentioned, the first topic that I would present today is neuromorphic stereo vision. And I would actually like to start with the definition\
             of stereo vision. So Stereo-vision refers to the method of recovering depth information from both eyes, or in the artificial \
                 context, machine stereo vision, also referred to as stereoscopic vision, extracts the data from two visual sensors.\
-                    It happends that the past 60 years of research have been devoted to frame based cameras whereas the article that i am introducing to\
-                        you today uses a relatively new approach based of bio inspired event stereo camera. Some of you migh ask yourselves - \
-                            what is an event camera and what is the difference between an event based to frame based camera?"
+                    Here you can see 2 types of stereo cameras, the one on the right is a standard stereo camare that consists of two standard cameras, \
+                        whereas the one on the left is a mount with a relatively new, bio inspired cameras that are called event cameras ...\
+                    The past 60 years of research have been devoted to frame based cameras whereas the article that i am introducing to\
+                        you today uses a relatively new approach based of the event stereo camera. Some of you migh ask yourselves - \
+                            what is an event camera and what is the difference between a frame based to event based camera?"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -58,8 +60,8 @@ class StereoVision(SlideScene):
 
 class WhatIsEventCameraPart1(SlideScene):
     def construct(self):
-        note = "Known frame based camera algorithms of computer vision suffer from issues like high latency due to redundant data analysis\
-            , motion blur which depends on the exposure time of the camera and low dynamic range which causes issues for example when there a strong light source in the camara's field of view.\
+        note = "When looking at existing frame data we can say that algorithms of computer vision suffer from issues like high latency - due to redundant data analysis\
+            , motion blur  - which depends on the exposure time of the camera,  and low dynamic range - which causes issues for example when there a strong light source in the camera's field of view.\
             but as we shall see, event cameras provide solutions to these problems."
         self.create_note(note)
         for x in Header().get():
@@ -93,10 +95,11 @@ class WhatIsEventCameraPart1(SlideScene):
 
 class WhatIsEventCameraPart2(SlideScene):
     def construct(self):
-        note = "Event camears were first commercialized in 2008 by Toby Delbruck from the university of Zurich\
+        note = "Event cameras were first commercialized in 2008 by Toby Delbruck from the university of Zurich\
              under the name of DVS which stands for Dynamic Vision Sensor.\
-                 The sensor measures only motion in the scene. An event camera has smart pixels that are all\
-                     independent of each other - every time that a single pixel detects motion, that pixel trigers an event."
+                 An event camera has smart pixels that are all\
+                     independent of each other - every time that a single pixel detects motion, in the form of brightness change, that pixel trigers an event.\
+                         This means that only motion in measured in the scene. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -134,10 +137,10 @@ class WhatIsEventCameraPart2(SlideScene):
 class WhatIsEventCameraPart3(SlideScene):
     def construct(self):
         note = "The animation on the bottom right of the screen from Davide Scaramuzza at the Robotics and perception group\
-             in the University of Zurich, compares the outputs of an event camera with a frame camera.\
+             in the University of Zurich, compares the outputs of a frame camera with an event camera.\
                     A rotating disk with a black circle is captured by the two camera types.\
                         On top you can see the output of a standard camera which are intensity frames at a constant time interval,\
-                            while on the bottom you see the output of an event camera, which relates only to the moving black circlt and represented as a spiral of events in space and time \
+                            while on the bottom you see the output of an event camera, which relates only to the moving black circle and represented as a spiral of events in space and time \
                                 where the red and blue colors represent the polarity of the event."
         self.create_note(note)
         for x in Header().get():
@@ -160,6 +163,37 @@ class WhatIsEventCameraPart3(SlideScene):
 
 
         #include video
+        cap = cv2.VideoCapture("../media/videos/basic_operation.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+
+         #include video
+        cap = cv2.VideoCapture("../media/videos/basic_operation.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
         cap = cv2.VideoCapture("../media/videos/basic_operation.mp4")
         flag, frame = cap.read()
         while not flag:
@@ -200,6 +234,36 @@ class WhatIsEventCameraPart4(SlideScene):
         self.add(bullets)
 
         #include video
+        cap = cv2.VideoCapture("../media/videos/no_events.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
+        cap = cv2.VideoCapture("../media/videos/no_events.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
         cap = cv2.VideoCapture("../media/videos/no_events.mp4")
         flag, frame = cap.read()
         while not flag:
@@ -263,13 +327,43 @@ class WhatIsEventCameraPart5(SlideScene):
                 self.remove(frame_img)
             
         cap.release()
+         #include video
+        cap = cv2.VideoCapture("../media/videos/no_blur.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
+        cap = cv2.VideoCapture("../media/videos/no_blur.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.66).shift(1.25*DOWN + 3*RIGHT)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
 
 class Football(SlideScene):
     def construct(self):
         note = "This is an example of a real output of an event camera where we have a guy catching a football, taken with a davis camera which is an event camera that outputs both events and frames.\
-            In this case the the frame are being output at a rate of 6 Hz while a window of 10 milliseconds of events is shown. The frame data rate pick value mesured at th 30 kilo Hz which mean that\
-                So we are talking of faster analysis of the data which is a great benefit especially in real-time applications. \
-                    So you have heard me repeating the word 'EVENT' many times, so I would like to finish this introduction by talking about events are generated."
+            In this case the the frame are being output at a rate of 6 Hz while a window of 10 milliseconds of events is shown. A very important fact to notice is that the data rate pick value was measured at 30 kilo Hz\
+                 which is that of a microcontroller - \
+                So we are talking of faster analysis of the data which is a great benefit especially in real-time applications."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -317,7 +411,8 @@ class Visualization(SlideScene):
             On the left we see a 3D space time visualization where the events are visualized in an x y t volume. \
                 BLUE corresponds to positive changes of intensity and The RED events correspond to negative change of intensity. \
                     On the right we see event in the form of frames, in this case each frame shows the events that were recorded in the last 10 milllseconds, \
-                        However, this delta T parameter is configurable and we can go down in time to 1 micro-second"
+                        However, this delta T parameter is configurable and we can go down in time to 1 micro-second.\
+                            So how are events generated ???."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -334,6 +429,36 @@ class Visualization(SlideScene):
         self.play(Write(title_camera, run_time=0.5))
         self.wait(1)
         #include video
+        cap = cv2.VideoCapture("../media/videos/visualization.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.95).shift(LEFT*0.6)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
+        cap = cv2.VideoCapture("../media/videos/visualization.mp4")
+        flag, frame = cap.read()
+        while not flag:
+            pass
+        while flag :
+            flag, frame = cap.read()
+            if flag:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame_img = ImageMobject(frame).scale(0.95).shift(LEFT*0.6)
+                self.add(frame_img)
+                self.wait(0.042)
+                self.remove(frame_img)
+            
+        cap.release()
+         #include video
         cap = cv2.VideoCapture("../media/videos/visualization.mp4")
         flag, frame = cap.read()
         while not flag:
@@ -424,7 +549,7 @@ class EventModelPart1(SlideScene):
         num.add_updater(lambda m, dt: add_event_to_axis(x_axis_event, m.get_value()) if (m.get_value())<1.5 or (m.get_value())>=1.85 else None)
         self.wait(x_finish)
         num.clear_updaters()
-        self.wait(3)
+        self.wait(5)
 
         pointer = Vector(DOWN, color=RED, stroke_width=1)
         pointer_cp = pointer.copy().shift(LEFT*2+UP*1.5)
@@ -464,14 +589,14 @@ class EventModelPart2(SlideScene):
         title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
         self.add(title_event)
 
-        self.play(FadeOut(formula))
+        self.play(FadeOut(formula), run_time=0.5)
         self.wait(2)
 
         #add diagram       
         diagram_txt = Text("Event Camera Pixel Circuit Diagram").shift(UP*2+LEFT*2).scale(0.5)
-        self.play(Write(diagram_txt))
+        self.play(Write(diagram_txt), run_time=0.5)
         circuit_img = ImageMobject("../images/DVS_pixel.png")
-        self.play(FadeIn(circuit_img))
+        self.play(FadeIn(circuit_img), run_time=0.5)
 
 class EventModelPart3(SlideScene):
     def construct(self):
@@ -495,10 +620,10 @@ class EventModelPart3(SlideScene):
         circuit_img_cp = circuit_img.copy().shift(RIGHT*3.5+UP*1.5).scale(0.5)
         pixel_txt = Text("The Intensity at a Single Pixel").shift(UP+LEFT*2).scale(0.5)
         self.play(ReplacementTransform(circuit_img, circuit_img_cp), Unwrite(diagram_txt))        
-        self.play(Write(pixel_txt))
+        self.play(Write(pixel_txt), run_time=0.5)
 
         intensity_img = ImageMobject("../images/operation.png").scale(0.85).shift(DOWN+LEFT*1.7)
-        self.play(FadeIn(intensity_img))
+        self.play(FadeIn(intensity_img), run_time=0.5)
 
 class EventModelPart4(SlideScene):
     def construct(self):
@@ -516,12 +641,12 @@ class EventModelPart4(SlideScene):
         circuit_img_cp = ImageMobject("../images/DVS_pixel.png").shift(RIGHT*3.5+UP*1.5).scale(0.5)
         pixel_txt = Text("The Intensity at a Single Pixel").shift(UP+LEFT*2).scale(0.5)
         self.add(pixel_txt, circuit_img_cp,intensity_img)
-        self.play(FadeOut(pixel_txt, circuit_img_cp,intensity_img))
+        self.play(FadeOut(pixel_txt, circuit_img_cp,intensity_img), run_time=0.5)
 
         available_img = ImageMobject("../images/availability.png").scale(0.8).shift(DOWN*0.2)
         available_txt = Text("Market Available Event Cameras").shift(UP*3).scale(0.7)
         self.play(ReplacementTransform(title_event, available_txt))
-        self.play(FadeIn(available_img))
+        self.play(FadeIn(available_img), run_time=0.5)
 
 class EventModelPart5(SlideScene):
     def construct(self):

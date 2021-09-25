@@ -1,0 +1,2 @@
+Select and activate an environment: hit Ctrl+Shift+P
+ Python: Select Interpreter ManimReveal
