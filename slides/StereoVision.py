@@ -15,14 +15,14 @@ class Header():
 
 class StereoVision(SlideScene):
     def construct(self):
-        note = "As I mentioned, the first topic that I would present today is neuromorphic stereo vision. And I would actually like to start with the definition\
-            of stereo vision. So Stereo-vision refers to the method of recovering depth information from both eyes, or in the artificial \
-                context, machine stereo vision, also referred to as stereoscopic vision, extracts the data from two visual sensors.\
-                    Here you can see 2 types of stereo cameras, the one on the right is a standard stereo camare that consists of two standard cameras, \
-                        whereas the one on the left is a mount with a relatively new, bio inspired cameras that are called event cameras ...\
-                    The past 60 years of research have been devoted to frame based cameras whereas the article that i am introducing to\
-                        you today uses a relatively new approach based of the event stereo camera. Some of you migh ask yourselves - \
-                            what is an event camera and what is the difference between a frame based to event based camera?"
+        note = "Before diving into the first Article I would like to start with a short intro to neuromorphic stereo vision.\
+             So Stereo-vision in general, refers to the method of recovering depth information from both eyes, or in the artificial \
+                context, machine stereo vision, or stereoscopic vision, extracts the data from two visual sensors.\
+                    Here you can see 2 types of stereo cameras, the one on the right is a standard stereo camera that consists of two standard cameras, \
+                        whereas the one on the left is a mount with pair of bio inspired cameras that are called event cameras ...\
+                            As this is a noval neuromorphic hardware - The article that i am introducing to\
+                                you today uses a neuromorphic approach, based on input fron an event stereo camera. \
+                                    so what is an event camera and what is the difference between a frame based to event based camera?"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
