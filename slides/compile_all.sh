@@ -24,6 +24,9 @@ manim StereoVisionArticle.py StereoCorrespondence2
 manim StereoVisionArticle.py StereoCorrespondence3
 manim StereoVisionArticle.py StereoCorrespondence4
 manim StereoVisionArticle.py StereoCorrespondence5
+manim StereoVisionArticle.py StereoCorrespondence6
+manim StereoVisionArticle.py StereoCorrespondence7
+manim StereoVisionArticle.py StereoCorrespondence8
 
 echo uploading to github
 
