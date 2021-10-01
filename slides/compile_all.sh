@@ -1,22 +1,22 @@
 #!/bin/sh
-echo Compiling all manim animation and uploading to website
+# echo Compiling all manim animation and uploading to website
 
-manim Introduction.py Title
-manim StereoVision.py StereoVision
-manim StereoVision.py WhatIsEventCameraPart1
-manim StereoVision.py WhatIsEventCameraPart2
-manim StereoVision.py WhatIsEventCameraPart3
-manim StereoVision.py WhatIsEventCameraPart4
-manim StereoVision.py WhatIsEventCameraPart5
-manim StereoVision.py Football
-manim StereoVision.py Visualization
-manim StereoVision.py EventModelPart1
-manim StereoVision.py EventModelPart2
-manim StereoVision.py EventModelPart3
-manim StereoVision.py EventModelPart4
-manim StereoVision.py EventModelPart5
+# manim Introduction.py Title
+# manim StereoVision.py StereoVision
+# manim StereoVision.py WhatIsEventCameraPart1
+# manim StereoVision.py WhatIsEventCameraPart2
+# manim StereoVision.py WhatIsEventCameraPart3
+# manim StereoVision.py WhatIsEventCameraPart4
+# manim StereoVision.py WhatIsEventCameraPart5
+# manim StereoVision.py Football
+# manim StereoVision.py Visualization
+# manim StereoVision.py EventModelPart1
+# manim StereoVision.py EventModelPart2
+# manim StereoVision.py EventModelPart3
+# manim StereoVision.py EventModelPart4
+# manim StereoVision.py EventModelPart5
 
-echo Article 1
+# echo Article 1
 
 manim StereoVisionArticle.py StereoModelTitle
 manim StereoVisionArticle.py StereoCorrespondence1
@@ -27,6 +27,16 @@ manim StereoVisionArticle.py StereoCorrespondence5
 manim StereoVisionArticle.py StereoCorrespondence6
 manim StereoVisionArticle.py StereoCorrespondence7
 manim StereoVisionArticle.py StereoCorrespondence8
+manim StereoVisionArticle.py StereoCorrespondence9
+manim StereoVisionArticle.py StereoCorrespondence10
+manim StereoVisionArticle.py DepthFromDisparity1
+manim StereoVisionArticle.py DepthFromDisparity2
+manim StereoVisionArticle.py DepthFromDisparity3
+manim StereoVisionArticle.py DepthFromDisparity4
+manim StereoVisionArticle.py DepthFromDisparity5
+manim StereoVisionArticle.py DepthMap1
+
+
 
 echo uploading to github
 
