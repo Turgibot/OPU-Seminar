@@ -14,7 +14,7 @@ class Title(SlideScene):
         self.create_note(note)
         for x in Header().get():
             self.add(x)
-        opu = Text("THE OPEN UNIVERSITY Of ISRAEL").scale(0.6).shift(UP*1.5)
+        opu = Text("THE OPEN UNIVERSITY OF ISRAEL").scale(0.6).shift(UP*1.5)
         seminar = Text("SEMINAR PRESENTATION").scale(0.6).next_to(opu, DOWN)
         guy = Text("Guy Tordjman").scale(0.3).next_to(seminar, DOWN)
         self.add(opu, seminar, guy)

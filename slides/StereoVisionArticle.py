@@ -366,7 +366,7 @@ class StereoCorrespondence8(SlideScene):
         self.play(Write(diff), run_time=0.1)
 
         self.wait(5)
-        disp = Tex(r"$disparity(0,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
+        disp = Tex(r"$disparity(10,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
         self.play(Write(disp), run_time=2)
 
 class StereoCorrespondence9(SlideScene):
@@ -406,7 +406,7 @@ class StereoCorrespondence9(SlideScene):
        
         diff = Text(str("2"), color=RED).scale(0.3).next_to(rect_right, UP*0.75).shift(LEFT*3.6)
         self.add(rect_right.next_to(diff, DOWN*0.75).shift(LEFT*0.01))
-        disp = Tex(r"$disparity(0,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
+        disp = Tex(r"$disparity(10,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
         self.add(diff, disp)
 
         self.play(FadeOut(left_img_line, right_img_line,diff, disp, rect_left, sad_img,left_row_txt,right_row_txt, x, y, x_axis, y_axis, x_axis_txt, y_axis_txt ))
@@ -797,3 +797,339 @@ class DepthMap1(SlideScene):
         right_txt = Text("Depth Map").scale(0.3).next_to(right_img, UP)
         stereo_pair = Group(left_img, left_txt, right_img, right_txt).center()
         self.play(FadeIn(stereo_pair))
+
+class SNNModel1(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        map_title = Text("Depth map").shift(UP*3).scale(0.7)
+
+        self.add(name, source, map_title)
+
+        left_img = ImageMobject("../images/bawlingLeft.png").scale(0.5)
+        left_txt = Text("Left Image").scale(0.3).next_to(left_img, UP)
+        right_img = ImageMobject("../images/bawlingDisp.png").scale(0.5).next_to(left_img, RIGHT)
+        right_txt = Text("Depth Map").scale(0.3).next_to(right_img, UP)
+        stereo_pair = Group(left_img, left_txt, right_img, right_txt).center()
+        self.add(stereo_pair)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+        self.play(ReplacementTransform(map_title, model_title), FadeOut(stereo_pair))
+        coor_img = ImageMobject("../images/coordinate1.png").scale(1.3).center()
+        coordinate_title = Text("The coordinate system of the network:", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        x_def = Tex(r"$x = x_R+x_L$").next_to(coor_img, LEFT).scale(0.5)
+        d_def = Tex(r"$d = x_R-x_L$").next_to(x_def, DOWN).scale(0.5)
+        self.play(FadeIn(coordinate_title, coor_img, x_def, d_def))
+
+class SNNModel2(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        coor_img = ImageMobject("../images/coordinate1.png").scale(1.3).center()
+        coordinate_title = Text("The coordinate system of the network:", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        x_def = Tex(r"$x = x_R+x_L$").next_to(coor_img, LEFT).scale(0.5)
+        d_def = Tex(r"$d = x_R-x_L$").next_to(x_def, DOWN).scale(0.5)
+        self.add(coordinate_title, coor_img, x_def, d_def)
+
+        m_1 = Tex(r"$\mathbb{M}:\hspace{1.5cm} \mathbb{N}^3\hspace{0.5cm} \longrightarrow \hspace{0.5cm}\mathbb{D}^3$").next_to(coor_img, RIGHT).scale(0.4).shift(LEFT*1.4)
+        m_2 = Tex(r"$(\Bar{x}_L,\Bar{x}_R,\Bar{y})\longrightarrow(x,y,d)=(\Bar{x}_R+\Bar{x}_L,\Bar{y},\Bar{x}_R-\Bar{x}_L)$").next_to(m_1, DOWN).scale(0.4)
+        
+        self.play(FadeIn(m_1, m_2))
+
+class SNNModel3(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        abstract_title = Text("Abstract view of the network’s architecture", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        abstract_img = ImageMobject("../images/high.png").scale(0.7)
+        self.play(FadeIn(abstract_title, abstract_img))
+
+class SNNModel4(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Detailed view of a horizontal layer of the network", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low.png").scale(0.7)
+        self.play(FadeIn(secondary_title, secondary_img))
+
+class SNNModel5(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Simple Coincidence Detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low.png").scale(0.7)
+        rect = Rectangle(color=BLUE, width=3.5, height=3).shift(LEFT*0.5)
+        self.add(secondary_title, secondary_img)
+        self.play(FadeIn(rect))
+
+class SNNModel6(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Simple Coincidence Detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/leaky.tif").scale(0.4)
+        secondary_img_title = Text("Leaky Integrate and fire neuron model").next_to(secondary_img, DOWN).scale(0.3)
+
+        
+        leaky_formula0 = Tex(r"$\tau_c\frac{dv_c(t)}{dt} = -v_c(t)+I_c(t),\hspace{0.5cm}  v_c(t)<\theta_c$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_c(t)=0,\hspace{1cm}  v_c(t)\geq\theta_c$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.play(FadeIn(secondary_title, secondary_img,secondary_img_title, leaky_formula0, leaky_formula1))
+
+class SNNModel7(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Simple Coincidence Detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/leaky.tif").scale(0.4)
+        secondary_img_title = Text("Leaky Integrate and fire neuron model").next_to(secondary_img, DOWN).scale(0.3)
+
+        
+        leaky_formula0 = Tex(r"$\tau_c\frac{dv_c(t)}{dt} = -v_c(t)+I_c(t),\hspace{0.5cm}  v_c(t)<\theta_c$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_c(t)=0,\hspace{1cm}  v_c(t)\geq\theta_c$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.add(secondary_title, secondary_img,secondary_img_title, leaky_formula0, leaky_formula1)
+
+        spikes_formula = Tex(r"$I_c(t) = w\sum_i\delta_{\Bar{x}_L}(t-t_i)+ w\sum_j\delta_{\Bar{x}_R}(t-t_j)$").scale(0.4).next_to(secondary_img,RIGHT).shift(UP*0.5)
+        self.play(FadeIn(spikes_formula))
+
+class SNNModel8(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Simple Coincidence Detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/leaky.tif").scale(0.4)
+        secondary_img_title = Text("Leaky Integrate and fire neuron model").next_to(secondary_img, DOWN).scale(0.3)
+
+        
+        leaky_formula0 = Tex(r"$\tau_c\frac{dv_c(t)}{dt} = -v_c(t)+I_c(t),\hspace{0.5cm}  v_c(t)<\theta_c$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_c(t)=0,\hspace{1cm}  v_c(t)\geq\theta_c$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.add(secondary_title, secondary_img,secondary_img_title, leaky_formula0, leaky_formula1)
+
+        spikes_formula = Tex(r"$I_c(t) = w\sum_i\delta_{\Bar{x}_L}(t-t_i)+ w\sum_j\delta_{\Bar{x}_R}(t-t_j)$").scale(0.4).next_to(secondary_img,RIGHT).shift(UP*0.5)
+        self.add(spikes_formula)
+
+        delta_formula = Tex(r"$S_{\Delta T} = \tau_c\ln(\frac{1}{\frac{\theta_c}{w}-1}) \hspace{0.25cm}, \hspace{1cm}1<\frac{\theta_c}{w}\leq2 $").scale(0.4).next_to(spikes_formula,DOWN)
+        
+        self.play(FadeIn(delta_formula))
+
+class SNNModel9(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Complex disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low.png").scale(0.7)
+        rect = Rectangle(color=BLUE, width=3.5, height=3).shift(LEFT*0.5)
+        self.add(secondary_title, secondary_img, rect)
+        self.play(rect.animate.shift(RIGHT*3))
+
+class SNNModel10(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Complex disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low_cut.png").scale(0.7).shift(LEFT*0.5)
+        leaky_formula0 = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_d(t)=0,\hspace{1cm}  v_d(t)\geq\theta_d$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.play(FadeIn(secondary_title, secondary_img,leaky_formula0, leaky_formula1))
+
+class SNNModel11(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Complex disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low_cut.png").scale(0.7).shift(LEFT*0.5)
+        leaky_formula0 = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_d(t)=0,\hspace{1cm}  v_d(t)\geq\theta_d$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.add(secondary_title, secondary_img,leaky_formula0, leaky_formula1)
+        
+        spikes_formula = Tex(r"$I_c(t) = w_{exc}\sum_{c\in C^+}\sum_k\delta_c(t-t_k) - w_{inh}\sum_{c\in C^-}\sum_k\delta_c(t-t_k)$").scale(0.33).next_to(secondary_img,RIGHT).shift(UP*0.5)
+        self.play(FadeIn(spikes_formula))
+
+        c_plus_formula = Tex(r"$C^+ = \{c\in C|(|x_c-x_d|\leq w)\land (|y_c-y_d|\leq w)\land(d_c =d_d)$").scale(0.33).next_to(spikes_formula,DOWN).shift(DOWN*0.3)
+        c_minus_formula = Tex(r"$C^- = \{c\in C|(x_c = x_d)\land (|y_c-y_d|\leq w)\land(|d_c-d_d|\leq w)$").scale(0.33).next_to(c_plus_formula,DOWN)
+        
+        self.play(FadeIn(c_plus_formula, c_minus_formula))
+
+class SNNModel12(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Mutual inhibition of disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low_disp.png").scale(0.9)
+        leaky_formula0 = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_d(t)=0,\hspace{1cm}  v_d(t)\geq\theta_d$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.play(FadeIn(secondary_title, secondary_img,leaky_formula0, leaky_formula1))
+
+
+class SNNModel13(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Mutual inhibition of disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low_disp.png").scale(0.9)
+        leaky_formula0 = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*5+UP*0.5)
+        leaky_formula1 = Tex(r"$v_d(t)=0,\hspace{1cm}  v_d(t)\geq\theta_d$").scale(0.4).next_to(leaky_formula0, DOWN)
+        self.add(secondary_title, secondary_img,leaky_formula0, leaky_formula1)
+
+        leaky_formula0_updated = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t)-I_{d-}(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*4.5+UP*0.5)
+        leaky_formula1_updated = Tex(r"$v_d(t)=0,\hspace{0.5cm}  v_d(t)\geq\theta_d \lor v_d(t) < 0$").scale(0.4).next_to(leaky_formula0_updated, DOWN)
+        self.play(ReplacementTransform(leaky_formula0, leaky_formula0_updated), ReplacementTransform(leaky_formula1, leaky_formula1_updated))
+
+class SNNModel14(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Mutual inhibition of disparity detectors", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/low_disp.png").scale(0.9)
+        self.add(secondary_title, secondary_img)
+
+        leaky_formula0_updated = Tex(r"$\tau_d\frac{dv_d(t)}{dt} = -v_d(t)+I_d(t)-I_{d-}(t),\hspace{0.5cm}  v_d(t)<\theta_d$").scale(0.4).shift(LEFT*4.5+UP*0.5)
+        leaky_formula1_updated = Tex(r"$v_d(t)=0,\hspace{0.5cm}  v_d(t)\geq\theta_d \lor v_d(t) < 0$").scale(0.4).next_to(leaky_formula0_updated, DOWN)
+        self.add(leaky_formula0_updated, leaky_formula1_updated)
+
+        i_d = Tex(r"$I_{d-}(t) = w_{rec}\sum_{d\in D^-}\sum_n\delta_d(t-t_n)$").scale(0.4).next_to(secondary_img,RIGHT).shift(UP*0.5)
+        d_minus = Tex(r"$D^- = \{d \in D|(x_d-d_d = 2\Bar{x}_L)\lor (x_d+d_d = 2\Bar{x}_R)$").scale(0.4).next_to(i_d,DOWN).align_to(i_d, LEFT)
+
+        self.play(FadeIn(i_d, d_minus))
+
+class SNNModel15(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Representation and coding of disparity - The Output", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        self.add(secondary_title)
+
+        event_d = Tex(r"$e^+_d = (\textbf{d},t)$").scale(0.45).shift(LEFT*4.5+UP)
+        event_d_txt = Text("- a unipolar disparity event that occurred at time t, at location d, in").scale(0.35).next_to(event_d, RIGHT)
+        d3 = Tex(r"$\mathbb{D}^3$").scale(0.45).next_to(event_d_txt, RIGHT)
+
+        
+        
+        self.play(FadeIn(event_d, event_d_txt, d3))
+
+class SNNModel16(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Representation and coding of disparity - The Output", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        self.add(secondary_title)
+
+        event_d = Tex(r"$e^+_d = (\textbf{d},t)$").scale(0.45).shift(LEFT*4.5+UP)
+        event_d_txt = Text("- a unipolar disparity event that occurred at time t, at location d, in").scale(0.35).next_to(event_d, RIGHT)
+        d3 = Tex(r"$\mathbb{D}^3$").scale(0.45).next_to(event_d_txt, RIGHT)
+
+        event_c = Tex(r"$e^+_c = (\textbf{c},t)$").scale(0.45).next_to(event_d, DOWN).align_to(event_d, LEFT).shift(DOWN*0.3)
+        event_c_txt = Text("- a unipolar disparity event that occurred at time t, at location c, in").scale(0.35).next_to(event_c, RIGHT)
+        c3 = Tex(r"$\mathbb{C}^3$").scale(0.45).next_to(event_c_txt, RIGHT)
+        
+        self.add(event_d, event_d_txt, d3)
+
+        self.play(FadeIn(event_c, event_c_txt, c3))
