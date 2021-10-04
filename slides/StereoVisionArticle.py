@@ -45,7 +45,7 @@ class StereoCorrespondence1(SlideScene):
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
         self.add(name, source)
         correspondence_title = Text("The Correspondence Problem").shift(UP*3).scale(0.7)
-        self.play(Write(correspondence_title))
+        self.play(FadeIn(correspondence_title))
         left_img = ImageMobject("../images/bawlingLeft.png").scale(0.5)
         left_txt = Text("Left Image").scale(0.3).next_to(left_img, UP)
         right_img = ImageMobject("../images/bawlingRight.png").scale(0.5).next_to(left_img, RIGHT)
@@ -164,19 +164,18 @@ class StereoCorrespondence4(SlideScene):
         line_l = DashedLine((-5,0,0), (-0.2, 0,0))
         line_r = DashedLine((0.2,0,0), (5, 0,0))
         self.play(Write(line_l), run_time=0.5)
-        self.wait()
         self.play(Write(line_r), run_time=0.5)
+        self.wait()
 
         line_l = DashedLine((-5,1,0), (-0.2, 1,0), color=BLUE)
         line_r = DashedLine((0.2,1,0), (5, 1,0), color=BLUE)
         self.play(Write(line_l), run_time=0.5)
-        self.wait()
         self.play(Write(line_r), run_time=0.5)
+
 
         line_l = DashedLine((-5,-1,0), (-0.2, -1,0), color=BLACK)
         line_r = DashedLine((0.2,-1,0), (5, -1,0), color=BLACK)
         self.play(Write(line_l), run_time=0.5)
-        self.wait()
         self.play(Write(line_r), run_time=0.5)
 
 class StereoCorrespondence5(SlideScene):
@@ -221,7 +220,7 @@ class StereoCorrespondence5(SlideScene):
         dot_src = Dot(radius=0.1, color=BLACK).shift(LEFT*3.27+UP*0.5).scale(0.3)
         self.play(FadeIn(dot_src))
 
-        sad_img = ImageMobject("../images/sad.png").scale(0.6).shift(UP*2.1)
+        sad_img = Tex(r"$SAD(x,y,d) = \sum_{(i,j)\in W}|I_1(x+i,y+j)-I_2(x+i+d,y+j)|$").scale(0.6).shift(UP*2.1)
         self.wait(3)
         self.play(FadeIn(sad_img))
 
@@ -248,7 +247,7 @@ class StereoCorrespondence6(SlideScene):
         right_row_txt = Text("Right Row").scale(0.3).next_to(right_img_line, UP*1.5)
         self.add(left_row_txt, right_row_txt)
         
-        sad_img = ImageMobject("../images/sad.png").scale(0.6).shift(UP*2.1)
+        sad_img = Tex(r"$SAD(x,y,d) = \sum_{(i,j)\in W}|I_1(x+i,y+j)-I_2(x+i+d,y+j)|$").scale(0.6).shift(UP*2.1)
         self.add(sad_img)
         
         rect_left = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(LEFT*3.27+UP*0.5).scale(0.5)
@@ -285,9 +284,9 @@ class StereoCorrespondence7(SlideScene):
         right_row_txt = Text("Right Row").scale(0.3).next_to(right_img_line, UP*1.5)
         self.add(left_row_txt, right_row_txt)
         
-        sad_img = ImageMobject("../images/sad.png").scale(0.6).shift(UP*2.1)
+        sad_img = Tex(r"$SAD(x,y,d) = \sum_{(i,j)\in W}|I_1(x+i,y+j)-I_2(x+i+d,y+j)|$").scale(0.6).shift(UP*2.1)
         self.add(sad_img)
-        
+
         rect_left = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(LEFT*3.27+UP*0.5).scale(0.5)
         rect_right = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(RIGHT*0.2+UP*0.5).scale(0.5)
         x = Text("6").scale(0.3).next_to(rect_left, DOWN)
@@ -341,9 +340,9 @@ class StereoCorrespondence8(SlideScene):
         right_row_txt = Text("Right Row").scale(0.3).next_to(right_img_line, UP*1.5)
         self.add(left_row_txt, right_row_txt)
         
-        sad_img = ImageMobject("../images/sad.png").scale(0.6).shift(UP*2.1)
+        sad_img = Tex(r"$SAD(x,y,d) = \sum_{(i,j)\in W}|I_1(x+i,y+j)-I_2(x+i+d,y+j)|$").scale(0.6).shift(UP*2.1)
         self.add(sad_img)
-        
+
         rect_left = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(LEFT*3.27+UP*0.5).scale(0.5)
         rect_right = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(RIGHT*0.2+UP*0.5).scale(0.5)
         x = Text("6").scale(0.3).next_to(rect_left, DOWN)
@@ -365,9 +364,8 @@ class StereoCorrespondence8(SlideScene):
         self.add(rect_right.next_to(diff, DOWN*0.75).shift(LEFT*0.01))
         self.play(Write(diff), run_time=0.1)
 
-        self.wait(5)
         disp = Tex(r"$disparity(10,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
-        self.play(Write(disp), run_time=2)
+        self.play(FadeIn(disp))
 
 class StereoCorrespondence9(SlideScene):
     def construct(self):
@@ -391,9 +389,9 @@ class StereoCorrespondence9(SlideScene):
         right_row_txt = Text("Right Row").scale(0.3).next_to(right_img_line, UP*1.5)
         self.add(left_row_txt, right_row_txt)
         
-        sad_img = ImageMobject("../images/sad.png").scale(0.6).shift(UP*2.1)
+        sad_img = Tex(r"$SAD(x,y,d) = \sum_{(i,j)\in W}|I_1(x+i,y+j)-I_2(x+i+d,y+j)|$").scale(0.6).shift(UP*2.1)
         self.add(sad_img)
-        
+
         rect_left = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(LEFT*3.27+UP*0.5).scale(0.5)
         rect_right = Rectangle(color=BLACK, height=0.61, width=0.61, grid_xstep=0.2, grid_ystep=0.2, stroke_width=1).shift(RIGHT*0.2+UP*0.5).scale(0.5)
         x = Text("6").scale(0.3).next_to(rect_left, DOWN)
@@ -413,15 +411,13 @@ class StereoCorrespondence9(SlideScene):
 
 
         difficult_txt = Text("Is Difficult").scale(0.7).next_to(correspondence_title, DOWN)
-        self.play(Write(difficult_txt))
+        self.play(Write(difficult_txt), run_time=0.3)
 
         prob1 = Text("Occlusions").scale(0.4).shift(LEFT*4.3+UP)
         prob2 = Text("Homogeneous regions").scale(0.4).next_to(prob1, DOWN).align_to(prob1, LEFT)
         prob3 = Text("Repetitive patterns").scale(0.4).next_to(prob2, DOWN).align_to(prob1, LEFT)
 
-        self.play(Write(prob1), run_time=0.3)
-        self.play(Write(prob2), run_time=0.3)
-        self.play(Write(prob3), run_time=0.3)
+        self.play(Write(prob1),Write(prob2),Write(prob3), run_time=0.3)
 
 class StereoCorrespondence10(SlideScene):
     def construct(self):
@@ -444,7 +440,7 @@ class StereoCorrespondence10(SlideScene):
         seperator = Line(difficult_txt.get_bottom(), bot_holder, color=BLUE).shift(DOWN*0.5+LEFT)
         global_title = Text("Global Constraint must be applied:", color=RED).scale(0.45).shift(RIGHT*2.5+UP*1.5)
 
-        self.play(Write(global_title), FadeIn(seperator))
+        self.play(FadeIn(global_title), FadeIn(seperator))
 
         const1_title = Text("Uniqueness", color=BLUE).scale(0.4).next_to(global_title, DOWN).align_to(global_title, LEFT)
         const1_txt = Text("For any point in one image, there should be at most ").scale(0.3).next_to(const1_title, DOWN).align_to(global_title, LEFT).shift(RIGHT*0.2)
@@ -457,9 +453,9 @@ class StereoCorrespondence10(SlideScene):
         const3_txt = Text("Disparity is typically a smooth function of x").scale(0.3).next_to(const3_title, DOWN).align_to(global_title, LEFT).shift(RIGHT*0.2)
         const31_txt = Text("(except in occluding boundaries)").scale(0.3).next_to(const3_txt, DOWN).align_to(global_title, LEFT).shift(RIGHT*0.2)
 
-        self.play(Write(const1_title), Write(const1_txt), Write(const11_txt), run_time=0.3)
+        self.play(FadeIn(const1_title,const1_txt,const11_txt), run_time=0.3)
         # self.play(Write(const2_title), Write(const2_txt), Write(const21_txt), run_time=0.3)
-        self.play(Write(const3_title), Write(const3_txt), Write(const31_txt), run_time=0.3)
+        self.play(FadeIn(const3_title,const3_txt,const31_txt), run_time=0.3)
 
         
 
@@ -644,18 +640,16 @@ class DepthFromDisparity4(SlideScene):
         foc_length = DashedLine(left_sens, left_epip.get_center())
         f = Tex(r"$f$").next_to(foc_length, LEFT).scale(0.4)
 
-        self.play(Create(foc_length), Write(f))
 
         base_line = DashedLine(left_sens, right_sens)
         T = Tex(r"$T$").next_to(base_line, DOWN).scale(0.4)
-        self.play(Create(base_line), Write(T))
         
         marker = Dot(radius=0.01).move_to(target).align_to(base_line, DOWN)
         height = DashedLine(target, marker, color=PURPLE)
         z = Tex(r"$Z$", color=PURPLE).next_to(height, RIGHT*0.5).scale(0.4)
-        self.play(Create(height), Write(z))
         base_line_epip = DashedLine(left_target, right_target, color=LIGHT_BROWN)
-        self.play(Create(base_line_epip))
+
+        self.play(Create(base_line_epip),Create(foc_length), Write(f),Create(base_line), Write(T),Create(height), Write(z))
 
 class DepthFromDisparity5(SlideScene):
     def construct(self):
@@ -719,9 +713,7 @@ class DepthFromDisparity5(SlideScene):
         for1 = Tex(r"$\frac{T}{Z} = \frac{T-(x_l-x_r)}{Z-f}  = \frac{T-d}{Z-f}$").scale(0.6).shift(RIGHT*3.5+UP*2)
         for2 = Tex(r"$\longrightarrow ZT-fT = ZT-Zd$").scale(0.5).next_to(for1, DOWN).align_to(for1, LEFT)
         for3 = Tex(r"$\longrightarrow Z = \frac{fT}{d}$").scale(0.5).next_to(for2, DOWN).align_to(for1, LEFT)
-        self.play(Write(for1))
-        self.play(Write(for2))
-        self.play(Write(for3))
+        self.play(Write(for1),Write(for2),Write(for3), run_time=0.3)
 
 class DepthMap1(SlideScene):
     def construct(self):
@@ -1133,3 +1125,325 @@ class SNNModel16(SlideScene):
         self.add(event_d, event_d_txt, d3)
 
         self.play(FadeIn(event_c, event_c_txt, c3))
+
+class SNNModel17(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Representation and coding of disparity - The Output", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        self.add(secondary_title)
+
+        event_d = Tex(r"$e^+_d = (\textbf{d},t)$").scale(0.45).shift(LEFT*4.5+UP)
+        event_d_txt = Text("- a unipolar disparity event that occurred at time t, at location d, in").scale(0.35).next_to(event_d, RIGHT)
+        d3 = Tex(r"$\mathbb{D}^3$").scale(0.45).next_to(event_d_txt, RIGHT)
+
+        event_c = Tex(r"$e^+_c = (\textbf{c},t)$").scale(0.45).next_to(event_d, DOWN).align_to(event_d, LEFT).shift(DOWN*0.3)
+        event_c_txt = Text("- a unipolar disparity event that occurred at time t, at location c, in").scale(0.35).next_to(event_c, RIGHT)
+        c3 = Tex(r"$\mathbb{C}^3$").scale(0.45).next_to(event_c_txt, RIGHT)
+        
+        self.add(event_d, event_d_txt, d3, event_c, event_c_txt, c3)
+
+        c_plus = Tex(r"$C^+ = \{e^+_c\}$").scale(0.45).next_to(event_c, DOWN)
+        d_plus = Tex(r"$D^+ = \{e^+_d\}$").scale(0.45).next_to(c_plus, RIGHT)
+        sets = VGroup(c_plus, d_plus).center().shift(DOWN*0.5)
+        cap = Tex(r"$O^+ = C^+\cap D^+$").scale(0.45).next_to(sets, DOWN)
+
+        self.play(FadeIn(c_plus, d_plus, cap))
+
+class SNNModel18(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Representation and coding of disparity - The Output", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        self.add(secondary_title)
+
+        event_d = Tex(r"$e^+_d = (\textbf{d},t)$").scale(0.45).shift(LEFT*4.5+UP)
+        event_d_txt = Text("- a unipolar disparity event that occurred at time t, at location d, in").scale(0.35).next_to(event_d, RIGHT)
+        d3 = Tex(r"$\mathbb{D}^3$").scale(0.45).next_to(event_d_txt, RIGHT)
+
+        event_c = Tex(r"$e^+_c = (\textbf{c},t)$").scale(0.45).next_to(event_d, DOWN).align_to(event_d, LEFT).shift(DOWN*0.3)
+        event_c_txt = Text("- a unipolar disparity event that occurred at time t, at location c, in").scale(0.35).next_to(event_c, RIGHT)
+        c3 = Tex(r"$\mathbb{C}^3$").scale(0.45).next_to(event_c_txt, RIGHT)
+        
+
+        c_plus = Tex(r"$C^+ = \{e^+_c\}$").scale(0.45).next_to(event_c, DOWN)
+        d_plus = Tex(r"$D^+ = \{e^+_d\}$").scale(0.45).next_to(c_plus, RIGHT)
+        sets = VGroup(c_plus, d_plus).center().shift(DOWN*0.5)
+        cap = Tex(r"$O^+ = C^+\cap D^+$").scale(0.45).next_to(sets, DOWN)
+        self.add(event_d, event_d_txt, d3, event_c, event_c_txt, c3, c_plus, d_plus, cap)
+
+        e_c = Tex(r"$e_c = (\textbf{c},s,t), \hspace{0.25cm} s \in [\text{-}1,1]$").scale(0.45).next_to(cap, DOWN)
+        o_final = Tex(r"$O =\{e_c \in C | [e_c]^+ \in D^+\}$").scale(0.45).next_to(e_c, DOWN)
+        self.play(FadeIn(e_c, o_final))
+
+
+class Results1(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+        secondary_title = Text("Ground Truth using the Microsoft Kinnect", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/kinect.jpeg").scale(1.2)
+        self.play(FadeIn(secondary_title, secondary_img))
+
+class Results2(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text("Network simulation", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+
+        bul0 = Text("Input source from 2 DVS cameras with 180X180 pixels resolution.").scale(0.3).shift(LEFT*1.2 + UP)
+        bul1 = Text("The SNN model incorporated a total of more than 4 million neurons.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
+        bul2 = Text("Simulation run time of about 30 seconds on a single core of an i7 CPU running at 3.40 GHz.").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
+        bul3 = Text("3 different scenes were tested.").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
+        bul4 = Text("The disparity was limited to the range (0, 40)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+        bul5 = Text("In the 4 seconds walking scene, roughly 1.2 million input events were processed.").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
+
+        bullets = Group(bul0,bul1,bul2,bul3,bul4,bul5)
+
+        self.play(FadeIn(secondary_title, bullets))
+
+class Results3(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Qualitative and quantitative results of the "Moving Face" scene', color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/head.png").scale(0.75).shift(DOWN*0.5)
+        self.play(FadeIn(secondary_title, secondary_img))
+
+
+class Results4(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Qualitative and quantitative results of the "People" scene', color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/walk.png").scale(0.75).shift(DOWN*0.5)
+        self.play(FadeIn(secondary_title, secondary_img))
+
+
+class Results5(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Qualitative and quantitative results of the "Martial Arts" scene', color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/arts.png").scale(0.75).shift(DOWN*0.5)
+        self.play(FadeIn(secondary_title, secondary_img))
+
+
+class Results6(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Summary of Results', color=BLUE).next_to(model_title, DOWN).scale(0.4).shift(UP*0.2)
+        secondary_img = ImageMobject("../images/hist.png").scale(0.8).shift(UP*0.4)
+        thirdary_img = ImageMobject("../images/summary.png").scale(1).shift(DOWN*2.2)
+        self.play(FadeIn(secondary_title, secondary_img, thirdary_img) )
+
+
+class Results7(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Response to dynamic random dot stereograms', color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/rds.png").scale(1).shift(UP*0.4)
+        self.play(FadeIn(secondary_title, secondary_img) )
+
+
+class Results8(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text('Response to dynamic random dot stereograms', color=BLUE).next_to(model_title, DOWN).scale(0.4)
+        secondary_img = ImageMobject("../images/cube.png").scale(1)
+        thirdary_img = ImageMobject("../images/cuberes.png").scale(1).next_to(secondary_img, RIGHT)
+        grp = Group(secondary_img, thirdary_img).center()
+        self.add(secondary_title)
+        self.play(FadeIn(grp) )
+
+
+class Results9(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text("Neuromorphic hardware implementation", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+
+        bul0 = Text("The Disparity detecetion was implemented on the Reconfigurable On-Line Learning Spiking (ROLLS) neuromorphic processor.").scale(0.3).shift(1.5*UP)
+        bul1 = Text("The Coincidence detecetion was implemented on a Field Programmable Gate Array (FPGA) device. ").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
+        bul2 = Text("An RDS stimulus was printed on a chart and moved across multiple depths.").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
+        bul3 = Text("The stimulus was presented at equally spaced disparities ranging from -10 to 10.").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
+        
+        bullets = Group(bul0,bul1,bul2,bul3)
+        secondary_img = ImageMobject("../images/neuro.png").scale(0.7)
+        thirdary_img = ImageMobject("../images/neuro2.png").scale(0.9).next_to(secondary_img, RIGHT)
+        grp = Group(secondary_img, thirdary_img).center().shift(DOWN*1.5)
+        self.play(FadeIn(grp, secondary_title, bullets))
+
+
+class Results10(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text("Comparing stereo correspondence performance of traditional and neuromorphic hardware", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+
+        bul0 = Text("The Disparity detecetion was implemented on the Reconfigurable On-Line Learning Spiking (ROLLS) neuromorphic processor.").scale(0.3).shift(1.5*UP)
+        bul1 = Text("The Coincidence detecetion was implemented on a Field Programmable Gate Array (FPGA) device. ").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
+        bul2 = Text("An RDS stimulus was printed on a chart and moved across multiple depths.").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
+        bul3 = Text("The stimulus was presented at equally spaced disparities ranging from -10 to 10.").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
+        
+        bullets = Group(bul0,bul1,bul2,bul3)
+        secondary_img = ImageMobject("../images/neuro.png").scale(0.7)
+        thirdary_img = ImageMobject("../images/neuro2.png").scale(0.9).next_to(secondary_img, RIGHT)
+        grp = Group(secondary_img, thirdary_img).center().shift(DOWN*1.5)
+        self.play(FadeIn(grp, secondary_title, bullets))
+
+class Results10(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text("Comparing stereo correspondence performance of traditional and neuromorphic hardware", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+
+        bul0 = Text("A SAD based stereo correspondenc algorithm implemented on a low power microcontroller.").scale(0.3).shift(1.5*UP+0.8*LEFT)
+        bul1 = Text("The number of SAD operations grows with the the camera frame-rate.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
+        bul2 = Text("In SNN model, the equivalent operational primitive is a coincidence detection followed by a spike integration.").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
+        bul3 = Text("The rate of these operations depends on the response of the DVS to the contents of the scene.").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
+        bul4 = Text("In the RDS scene the operation rate was calculated as 151 Hz.").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
+
+        bullets = Group(bul0,bul1,bul2,bul3,bul4)
+
+        secondary_img = ImageMobject("../images/compare.png").scale(0.7).shift(DOWN*1.5)
+        self.play(FadeIn(secondary_img, secondary_title, bullets))
+
+
+class Summary1(SlideScene):
+    def construct(self):
+        note = "......"
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
+        model_title = Text("Summary").shift(UP*3).scale(0.65)
+
+        self.add(name, source, model_title)
+
+        
+        secondary_title = Text("The researchers succeeded in:", color=BLUE).next_to(model_title, DOWN).scale(0.4)
+
+        bul0 = Text("Use stereo event camera spikes as input to the SNN model.").scale(0.3).shift(1.5*UP+2*LEFT)
+        bul1 = Text("Implement the SNN model and solve the correspondence problem for multiple scenes and with high PCM.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
+        bul2 = Text("Implement the SNN model on a neuromorphic hardware").scale(0.3).next_to(bul1, DOWN).align_to(bul1, LEFT)
+        bul3 = Text("Compare power consumption on the neuromorphic hardware Vs. a traditional one.").scale(0.3).next_to(bul2, DOWN).align_to(bul2, LEFT)
+
+        bullets = Group(bul0,bul1,bul2,bul3)
+
+        self.play(FadeIn(secondary_title, bullets))

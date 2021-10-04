@@ -1,5 +1,2 @@
 # This file is used internally by FFMPEG.
 file 'file:/home/guy/Seminar/OPU-Seminar/video_slides/partial_movie_files/DepthFromDisparity4/uncached_00000.mp4'
-file 'file:/home/guy/Seminar/OPU-Seminar/video_slides/partial_movie_files/DepthFromDisparity4/uncached_00001.mp4'
-file 'file:/home/guy/Seminar/OPU-Seminar/video_slides/partial_movie_files/DepthFromDisparity4/uncached_00002.mp4'
-file 'file:/home/guy/Seminar/OPU-Seminar/video_slides/partial_movie_files/DepthFromDisparity4/uncached_00003.mp4'

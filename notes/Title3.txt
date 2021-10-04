@@ -1,0 +1,1 @@
+<aside class="notes">The First topic is neuromorphic stereo vision and the second one is neuromorphic Robot PID controller.</aside>

@@ -13,11 +13,33 @@ class Header():
 
 
 
-class StereoVision(SlideScene):
+class StereoVision1(SlideScene):
     def construct(self):
         note = "Before diving into the first Article I would like to start with a short intro to neuromorphic stereo vision.\
              So Stereo-vision in general, refers to the method of recovering depth information from both eyes, or in the artificial \
-                context, machine stereo vision, or stereoscopic vision, extracts the data from two visual sensors.\
+                context ...."
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        self.add(name)
+        
+        neuro_title = Text("Neuromorphic Stereo vision").scale(0.7)
+        self.add(neuro_title)
+        self.wait()
+
+        title = Text("Stereo Vision").shift(UP*3).scale(0.7)
+        self.play(ReplacementTransform(neuro_title, title), run_time=1)        
+
+        depth = ImageMobject("../images/depth-perception.jpg").scale(1.3)
+        definition = Text("Stereo-vision refers to the method of recovering depth information from both eyes.").scale(0.3).next_to(depth, DOWN)
+        self.play(FadeIn(depth, definition))
+        
+
+
+class StereoVision2(SlideScene):
+    def construct(self):
+        note = "Machine stereo vision, or stereoscopic vision, extracts the data from two visual sensors.\
                     Here you can see 2 types of stereo cameras, the one on the right is a standard stereo camera that consists of two standard cameras, \
                         whereas the one on the left is a mount with pair of bio inspired cameras that are called event cameras ...\
                             As this is a noval neuromorphic hardware - The article that i am introducing to\
@@ -28,33 +50,17 @@ class StereoVision(SlideScene):
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         self.add(name)
-        
-        neuro_title = Text("Neuromorphic Stereo vision").scale(0.7)
-        pid = Text("Neuromorphic Robot PID controller").scale(0.7).next_to(neuro_title, DOWN)
-        self.add(neuro_title)
-        self.play(FadeOut(pid), run_time=1.5)
-        self.wait(2)
-
-        title = Text("Stereo Vision").shift(UP*3).scale(0.7)
-        self.play(ReplacementTransform(neuro_title, title), run_time=1)
        
         zed = ImageMobject('../images/zed.jpg').shift(2.2*RIGHT+0.7*UP).scale(0.7)
         ec = ImageMobject('../images/stereo_event.png').shift(2.2*LEFT)
         neuro = Text("Event Stereo Camera").scale(0.7).next_to(ec, DOWN)
         classic = Text("Frame based Stereo Camera").scale(0.7).next_to(zed, UP)
 
-        depth = ImageMobject("../images/depth-perception.jpg").scale(1.3)
-        definition = Text("Stereo-vision refers to the method of recovering depth information from both eyes.").scale(0.3).next_to(depth, DOWN)
-        self.play(FadeIn(depth, definition))
-        self.wait(8)
-        self.play(FadeOut(depth, definition))
-        self.wait(1)
         machine_title = Text("Machine Stereo Vision").shift(UP*3).scale(0.7)
-        self.play(ReplacementTransform(title, machine_title))
+        self.play(FadeIn(machine_title))
         self.wait(0.5)
-        self.play(FadeIn(zed,classic), run_time=2)
-        self.wait(1.5)
-        self.play(FadeIn(ec, neuro), run_time=2)
+        self.play(FadeIn(zed,classic,ec, neuro))
+
 
 
 
@@ -77,20 +83,15 @@ class WhatIsEventCameraPart1(SlideScene):
         frame_img = ImageMobject('../images/framebased.png').scale(0.8)
         frame_txt = Text("Framed base image data").scale(0.3).next_to(frame_img, DOWN)
         grp1 = Group(frame_img, frame_txt)
-        self.play(FadeIn(grp1))
-        frame_img_c = ImageMobject('../images/framebased.png').scale(0.8).shift(1*DOWN)
-        frame_txt_c = Text("Framed base image data").scale(0.3).next_to(frame_img_c, DOWN)
-        grp2 = Group(frame_img_c, frame_txt_c)
-        self.play(ReplacementTransform(grp1, grp2), run_time=2)
 
-        high_txt = Text("High Latency").scale(0.3).shift(3.3*LEFT+0.7*UP)
-        self.play(Write(high_txt))
-        self.wait(3)
-        blur_txt = Text("Motion Blur").scale(0.3).shift(0.3*LEFT+0.7*UP)
-        self.play(Write(blur_txt))
-        self.wait(1.5)
-        dnr_txt = Text("Low Dynamic Range").scale(0.3).shift(3*RIGHT+0.7*UP)
-        self.play(Write(dnr_txt))
+        high_txt = Text("High Latency").scale(0.3).shift(3.3*LEFT+1.7*UP)
+ 
+        blur_txt = Text("Motion Blur").scale(0.3).shift(0.3*LEFT+1.7*UP)
+
+        dnr_txt = Text("Low Dynamic Range").scale(0.3).shift(3*RIGHT+1.7*UP)
+
+        self.play(FadeIn(grp1, high_txt, blur_txt, dnr_txt))
+
 
 
 class WhatIsEventCameraPart2(SlideScene):
@@ -109,13 +110,6 @@ class WhatIsEventCameraPart2(SlideScene):
         title_camera = Text("What is an Event camera").shift(UP*3).scale(0.7)
         self.add(title_camera)
 
-        frame_img = ImageMobject('../images/framebased.png').scale(0.8).shift(1*DOWN)
-        frame_txt = Text("Framed base image data").scale(0.3).next_to(frame_img, DOWN)
-        high_txt = Text("High Latency").scale(0.3).shift(3.3*LEFT+0.7*UP)
-        blur_txt = Text("Motion Blur").scale(0.3).shift(0.3*LEFT+0.7*UP)    
-        dnr_txt = Text("Low Dynamic Range").scale(0.3).shift(3*RIGHT+0.7*UP)
-        self.add(frame_txt,frame_img,high_txt,blur_txt,dnr_txt)
-        self.play(FadeOut(frame_txt,frame_img,high_txt,blur_txt,dnr_txt), run_time=2)
 
         bul0 = Text("First commercialized in 2008 by Toby Delbruck(UZH&ETH under the name of Dynamic Vision Sensor (DVS).)").scale(0.3).shift(LEFT*1.2 + 2*UP)
         bul1 = Text("Novel sensor that measures the motion in the scene.").scale(0.3).next_to(bul0, DOWN).align_to(bul0, LEFT)
@@ -124,12 +118,7 @@ class WhatIsEventCameraPart2(SlideScene):
         bul4 = Text("Low latency (~1 μs)").scale(0.3).next_to(bul3, DOWN).align_to(bul3, LEFT)
         bul5 = Text("No motion blur").scale(0.3).next_to(bul4, DOWN).align_to(bul4, LEFT)
        
-        self.play(Write(bul0), run_time = 0.75)
-        self.play(Write(bul1), run_time = 0.75)
-        self.play(Write(bul2), run_time = 0.75)
-        self.play(Write(bul3), run_time = 0.75)
-        self.play(Write(bul4), run_time = 0.75)
-        self.play(Write(bul5), run_time = 0.75)
+        self.play(Write(bul0),Write(bul1),Write(bul2),Write(bul3),Write(bul4),Write(bul5), run_time = 0.75)
 
 
 
@@ -479,10 +468,7 @@ class EventModelPart1(SlideScene):
         note = "As We have seen a traditional camera outputs frames at fixed time intervals,\
             By contrast, event camera outputs asynchronous events at microseconds resolution. \
                 An event is generated every time a single pixel detects a change in intensity value.\
-                    each event consists of the following data: \
-                        1. The timestamp at the time of the trigering. \
-                            2. The x and y pixel coordinates in the sensor. \
-                                3. The event polarity (or sign) that get the value  of 1 or -1 for increase or decrease of brightness."
+                    "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -551,10 +537,27 @@ class EventModelPart1(SlideScene):
         num.clear_updaters()
         self.wait(5)
 
+
+class EventModelPart2(SlideScene):
+    def construct(self):
+        note = "each event consists of the following data: \
+                        1. The timestamp at the time of the trigering. \
+                            2. The x and y pixel coordinates in the sensor. \
+                                3. The event polarity (or sign) that get the value  of 1 or -1 for increase or decrease of brightness."
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("http://rpg.ifi.uzh.ch/docs/EventVisionSurvey.pdf", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+        title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
+        self.add(title_event)
+        
+ 
+
         pointer = Vector(DOWN, color=RED, stroke_width=1)
         pointer_cp = pointer.copy().shift(LEFT*2+UP*1.5)
-        self.play(FadeOut(x_axis_event, axis_txt, pointers, clock, border), FadeIn(pointer))
-        self.play(ReplacementTransform(pointer, pointer_cp), run_time=2)
+        self.play(ReplacementTransform(pointer, pointer_cp))
 
         formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
         self.play(Write(formula0))
@@ -565,7 +568,7 @@ class EventModelPart1(SlideScene):
         formula2 = Tex(r"$, p \right\rangle $").next_to(formula1, RIGHT)
         self.play(Write(formula2))
 
-class EventModelPart2(SlideScene):
+class EventModelPart3(SlideScene):
     def construct(self):
         note = "Looking at the circuit diagram of a single pixel we can see that : \
             1. The photoreceptor diode connected to a logritmic calculation module.\
@@ -579,26 +582,15 @@ class EventModelPart2(SlideScene):
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Lichtsteiner et al. A 128x128 120 dB 15µs Latency Asynchronous Temporal Contrast Vision Sensor, IEEE Journal of Solid-State Circuits, 2008", font_size=11).shift(3.2*DOWN+2*RIGHT).scale(0.8)
         self.add(name, source)
-        pointer_cp = Vector(DOWN, color=RED, stroke_width=1).shift(LEFT*2+UP*1.5)
-
-        formula0 = Tex(r"$event=\left\langle t,  $").next_to(pointer_cp, DOWN)
-        formula1 = Tex(r"$\left\langle x,y \right\rangle $").next_to(formula0, RIGHT)
-        formula2 = Tex(r"$, p \right\rangle $").next_to(formula1, RIGHT)
-        formula = Group(formula0, formula1, formula2)
-        self.add(formula0)
         title_event = Text("Generative Event Model").shift(UP*3).scale(0.7)
         self.add(title_event)
-
-        self.play(FadeOut(formula), run_time=0.5)
-        self.wait(2)
-
         #add diagram       
         diagram_txt = Text("Event Camera Pixel Circuit Diagram").shift(UP*2+LEFT*2).scale(0.5)
         self.play(Write(diagram_txt), run_time=0.5)
         circuit_img = ImageMobject("../images/DVS_pixel.png")
         self.play(FadeIn(circuit_img), run_time=0.5)
 
-class EventModelPart3(SlideScene):
+class EventModelPart4(SlideScene):
     def construct(self):
         note = "This graph describes the log Intensity at a Single Pixel x over time. \
             As you can see a POSITIVE RED event was triggered everytime the log intensity increased passed a positive contrast sentitivity threshold -  \
@@ -625,7 +617,7 @@ class EventModelPart3(SlideScene):
         intensity_img = ImageMobject("../images/operation.png").scale(0.85).shift(DOWN+LEFT*1.7)
         self.play(FadeIn(intensity_img), run_time=0.5)
 
-class EventModelPart4(SlideScene):
+class EventModelPart5(SlideScene):
     def construct(self):
         note = "Here we see a list of Event camera manufacturers and some of their key properties, as you can see, their price is very high compared to a standard camera."
         self.create_note(note)
@@ -648,7 +640,7 @@ class EventModelPart4(SlideScene):
         self.play(ReplacementTransform(title_event, available_txt))
         self.play(FadeIn(available_img), run_time=0.5)
 
-class EventModelPart5(SlideScene):
+class EventModelPart6(SlideScene):
     def construct(self):
         note = "Before I move on to reviewing the algorithm in the article, I just wanted to state that because the output of an event camera is asynchronous\
              and it posseses no intensity information - but only binary intensity changes, traditional vision algorithms that are used on regular frame data \
@@ -675,11 +667,32 @@ class EventModelPart5(SlideScene):
         txt3 = Text("No pixel intensity information").scale(0.4).next_to(txt2, DOWN).align_to(txt1, LEFT).shift(RIGHT*0.2)
         txt4 = Text("Traditional vision algorithms cannot be used", color=RED).scale(0.55).shift(DOWN*1.75)
 
-        self.play(Write(txt1),FadeIn(dvs_img,dvs_txt))
-        self.play(Write(txt2))
-        self.play(Write(txt3))
-        self.wait(3)
-        self.play(Write(txt4))
+        self.play(Write(txt1),Write(txt2),Write(txt3),FadeIn(dvs_img,dvs_txt), run_time=0.3)
+
+
+class EventModelPart7(SlideScene):
+    def construct(self):
+        note = "Before I move on to reviewing the algorithm in the article, I just wanted to state that because the output of an event camera is asynchronous\
+             and it posseses no intensity information - but only binary intensity changes, traditional vision algorithms that are used on regular frame data \
+                 cannot be used on event camera data - \
+            Therefor a paradigm shift needs to be applied and example of that is in the article : "
+        self.create_note(note)
+        for x in Header().get():
+            self.add(x)
+        name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
+        source = Text("http://rpg.ifi.uzh.ch/docs/EventVisionSurvey.pdf", font_size=11).shift(3.2*DOWN+3*RIGHT)
+        self.add(name, source)
+    
+        dvs_img = ImageMobject('../images/DVS_hand.jpg').scale(0.4).shift(RIGHT*3.8)
+        dvs_txt = Text("The Dynamic Vision Sensor (DVS)").scale(0.25).next_to(dvs_img, DOWN)
+
+        txt1 = Text("Because event camera's output data is:").scale(0.5).shift(UP*1.5+LEFT*0.3)
+        txt2 = Text("Asynchronous").scale(0.4).next_to(txt1, DOWN).align_to(txt1, LEFT).shift(RIGHT*0.2)
+        txt3 = Text("No pixel intensity information").scale(0.4).next_to(txt2, DOWN).align_to(txt1, LEFT).shift(RIGHT*0.2)
+        txt4 = Text("Traditional vision algorithms cannot be used", color=RED).scale(0.55).shift(DOWN*1.75)
+
+        self.add(txt1,txt2,txt3,dvs_img,dvs_txt)
+        self.play(FadeIn(txt4))
 
 
 

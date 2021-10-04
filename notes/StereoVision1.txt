@@ -1,0 +1,1 @@
+<aside class="notes">Before diving into the first Article I would like to start with a short intro to neuromorphic stereo vision.             So Stereo-vision in general, refers to the method of recovering depth information from both eyes, or in the artificial                 context ....</aside>
