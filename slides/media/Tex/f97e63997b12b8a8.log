@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=latex 2021.9.30)  5 OCT 2021 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=latex 2021.9.30)  5 OCT 2021 17:26
 entering extended mode
 **./media/Tex/f97e63997b12b8a8.tex
 (media/Tex/f97e63997b12b8a8.tex
@@ -278,8 +278,7 @@ LaTeX Info: Redefining \lslig on input line 915.
 Package microtype Info: Loading configuration file microtype.cfg.
 (/home/guy/.miktex/texmfs/install/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
-))
-No file f97e63997b12b8a8.aux.
+)) (/home/guy/Seminar/OPU-Seminar-HEB/slides/media/Tex/f97e63997b12b8a8.aux)
 \openout1 = `f97e63997b12b8a8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -322,8 +321,8 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 l.27 PID(s) = \frac{X(s)}{E(s)}
                                 = K_p + \frac{K_i}{s} + K_ds 
 Here is how much of TeX's memory you used:
- 7448 strings out of 480865
- 110094 string characters out of 2904738
+ 7450 strings out of 480865
+ 110236 string characters out of 2904738
  446059 words of memory out of 3000000
  24970 multiletter control sequences out of 15000+600000
  412233 words of font info for 33 fonts, out of 8000000 for 9000

@@ -26,7 +26,7 @@ class PID_Intro1(SlideScene):
 
 class PID_Intro2(SlideScene):
     def construct(self):
-        note = " המאמר מדבר על מימוש נוירומורפי של בקר פי אי די  - פי אי די מסורתי הוא בקר המקבל ככניסה את אות השגיאה אי של טי המחושב כהפרש בין ערך רפרנס למשתנה תהליך. הבקר מוציא פקודת תיקון המבוססת על שלושה רכיבים - פרופורליונלי אינטגרלי ודיפרנציאלי   "
+        note = "  המאמר מדבר על מימוש נוירומורפי של בקר פי אי די  - פי אי די מסורתי הוא בקר המקבל ככניסה את אות השגיאה אי של טי המחושב כהפרש בין ערך רפרנס למשתנה תהליך. הבקר מוציא פקודת תיקון המבוססת על שלושה רכיבים - פרופורליונלי אינטגרלי ודיפרנציאלי.    "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -42,7 +42,7 @@ class PID_Intro2(SlideScene):
         secondary_img = ImageMobject("../images/PID.png").scale(0.5)
 
         pid_eq = Tex(r"$u(t) = K_pe(T)+K_i\int_0^te(\tau)d\tau +K_d\frac{de(t)}{dt}$").scale(0.4).next_to(rec, DOWN)
-        pid_s = Tex(r"PID(s) = \frac{X(s)}{E(s)} = K_p + \frac{K_i}{s} + K_ds").scale(0.4).next_to(pid_eq, DOWN)
+        pid_s = Tex(r"$PID(s) = \frac{X(s)}{E(s)} = K_p + \frac{K_i}{s} + K_ds$").scale(0.4).next_to(pid_eq, DOWN)
         self.play(FadeIn(rec, secondary_title, secondary_img, pid_eq, pid_s))
 
 
