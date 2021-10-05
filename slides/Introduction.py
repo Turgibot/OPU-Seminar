@@ -22,7 +22,7 @@ class Title1(SlideScene):
 
 class Title2(SlideScene):
     def construct(self):
-        note = "Hello Everyone, my name is Guy Tordjman and today I'll present my seminar. This seminar reviews articles in 2 fields of neuromorphic engineering."
+        note = "שלום לכולם, שמי גיא תורג'מן וברצוני להציג בפניכם את עבודת הסמינר שלי."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -37,7 +37,7 @@ class Title2(SlideScene):
 
 class Title3(SlideScene):
     def construct(self):
-        note = "The First topic is neuromorphic stereo vision and the second one is neuromorphic Robot PID controller."
+        note = "הסמינר מתחלק לשני חלקים. החלק הראשון מדבר על : ... והחלק השני מדבר על... ."
         self.create_note(note)
         for x in Header().get():
             self.add(x)

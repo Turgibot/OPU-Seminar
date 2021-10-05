@@ -21,7 +21,7 @@ echo Compiling all manim animation and uploading to website
 # manim StereoVision.py EventModelPart6
 # manim StereoVision.py EventModelPart7
 
-# echo Article 1
+echo Article 1
 
 # manim StereoVisionArticle.py StereoModelTitle
 # manim StereoVisionArticle.py StereoCorrespondence1
@@ -40,6 +40,7 @@ echo Compiling all manim animation and uploading to website
 # manim StereoVisionArticle.py DepthFromDisparity4
 # manim StereoVisionArticle.py DepthFromDisparity5
 # manim StereoVisionArticle.py DepthMap1
+# manim StereoVisionArticle.py SNNModel1
 # manim StereoVisionArticle.py SNNModel2
 # manim StereoVisionArticle.py SNNModel3
 # manim StereoVisionArticle.py SNNModel4
@@ -109,9 +110,9 @@ manim PID.py Demo
 
 
 
-echo uploading to github
+# echo uploading to github
 
-cd ..
-git add .
-git commit -m "uploading from script"
-git push
+# cd ..
+# git add .
+# git commit -m "uploading from script"
+# git push

@@ -1,1 +1,1 @@
-<aside class="notes">This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2</aside>
+<aside class="notes">ההפרש המינימלי הוא בעצם ההתאמה המקסימלית הנמצא באינקס איקס ימין ששווה ל4 - מה שאומר שההפרש בין האינדקס של המקור להתאמה הוא 6 פחות 4 ששווה ל2 וזהו בעצם ערך הדיספריטי</aside>

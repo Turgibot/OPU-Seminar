@@ -1,1 +1,1 @@
-<aside class="notes">This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2</aside>
+<aside class="notes">אבל למרות השימוש בפונציית המחיר הבעיה עדיין קשה - למשל מה אם היה יותר מערך מינימלי אחד ? אזורים מוסתרים בעלי תבניות חוזרות או איזורים של משטחים הומוגניים עדיין מהווים אתגר </aside>

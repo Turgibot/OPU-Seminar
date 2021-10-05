@@ -1,1 +1,1 @@
-<aside class="notes">This 2017 article by Osswald et al. describes a spiking neural network model of 3D perception             for event bases neuromorphic stereo vision systems</aside>
+<aside class="notes">זהו מאמר מ2017 שנכתב על ידי מרק אוסוואלד ואחרים מאוניברסיטת ציריך ( כן יש שם קבוצה חזקה שמתעסקת ברובוטיקה וראייה ממוחשבת)  נקרא את הכותרת שלו: שקף</aside>

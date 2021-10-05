@@ -1,1 +1,1 @@
-<aside class="notes">Here we see a list of Event camera manufacturers and some of their key properties, as you can see, their price is very high compared to a standard camera.</aside>
+<aside class="notes">בשקף הזה אנו רואים רשימה של יצרנים ומצלמות איבנטים זמינות בשוק - ניתן לראות שהמבחר לא גדול ושהמחיר לא אטרקיטיבי וזה מסביר למה קשה למצוא שימוש תעשייתי במצלמות הללו  - וכרגע על פניו  - נראה לי לפחות שההתמקדות היא יותר במחקר ובצד האקדמי  - </aside>

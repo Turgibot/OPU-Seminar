@@ -1,1 +1,1 @@
-<aside class="notes">As We have seen a traditional camera outputs frames at fixed time intervals,            By contrast, event camera outputs asynchronous events at microseconds resolution.                 An event is generated every time a single pixel detects a change in intensity value.                    </aside>
+<aside class="notes"> אז איך איבנטים מיוצגים בעצם? ובכן כאמור מצלמה סטנדרטית מוציאה פריימים באינטרוול זמן קבוע ואילו איבנטים נורים בצורה אסינכרונית כל פעם שפיקסל מגלה שינוי באינטנסיטי שלו וברזולוזיה של מיקרו שניות. שקף . </aside>

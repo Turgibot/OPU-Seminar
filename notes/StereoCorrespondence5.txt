@@ -1,1 +1,1 @@
-<aside class="notes">Looking at a single line at the same y value, from both images , we can improve our algorithm by minimizing a SAD cost function.             Looking for a match for the BLACK point at x index equal to 6, on the left image is done by calculating the sum of absolute differences between each pixel in a window                 of certain size</aside>
+<aside class="notes"> אם נסתכל על שתי שורות מאותו קואודינטת וואי - ונרצה למצוא התאמה לפיקסל בודד באינדקס איקס שווה ל6</aside>

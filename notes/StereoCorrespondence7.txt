@@ -1,1 +1,1 @@
-<aside class="notes">After calculating the SAD value for every point on the right row we can see that the minimum cost is at index 4</aside>
+<aside class="notes">בעצם מוחשב סכום ההפרשים האבסולוטי בין כל פיקסל במיקום מסוים בחלון המקור לפיסקל מתאים בחלון היעד,  כאשר את חלון היעד מדלגים לאורך ציר האיקס </aside>

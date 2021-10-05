@@ -15,9 +15,7 @@ class Header():
 
 class StereoVision1(SlideScene):
     def construct(self):
-        note = "Before diving into the first Article I would like to start with a short intro to neuromorphic stereo vision.\
-             So Stereo-vision in general, refers to the method of recovering depth information from both eyes, or in the artificial \
-                context ...."
+        note = "לפני שאתחיל לדבר על נאורומורפיק סטראו ויזיון חשוב להגדיר מה זה בעצם סטראו ויזיון - אז סטראו ויזיון זוהי בעצם היכולת לנתח מידע ויזואלי משתי העיניים ובכך להשיג מידע על המרחק של האובייקט עליו מתבוננים "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -45,6 +43,7 @@ class StereoVision2(SlideScene):
                             As this is a noval neuromorphic hardware - The article that i am introducing to\
                                 you today uses a neuromorphic approach, based on input fron an event stereo camera. \
                                     so what is an event camera and what is the difference between a frame based to event based camera?"
+        note = "ובקונטקסט של העולם שלנו, משין סטראו ויזיון מתייחס לחילוץ המידע על העומק ממידע ויזואלי שמגיע משני חיישנים. כאשר עד לא מזמן מידע סטראוסקופי היה זמין דרך מצלמות מבוססות פריימים כמו מצלמת הזד שמוצגת בשקף ואילו המצלמה האחרת היא מצלמת איבנטים או ארועים שבה משתמשים במאמר הראשון שאותו אני אסקור. אז מה זה בעצם איבנט קאמרה? ומה ההבדל בין מצלמת פריימים לבין מצלמת איבנטים? שקף "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -69,6 +68,8 @@ class WhatIsEventCameraPart1(SlideScene):
         note = "When looking at existing frame data we can say that algorithms of computer vision suffer from issues like high latency - due to redundant data analysis\
             , motion blur  - which depends on the exposure time of the camera,  and low dynamic range - which causes issues for example when there a strong light source in the camera's field of view.\
             but as we shall see, event cameras provide solutions to these problems."
+        
+        note = "התמונות הבאות מייצגות אתגרים קיימים באלגוריתמי ראייה ממוחשבת המבוססים קלט ממצלמות פריימים. אתגר ראשון הוא זמן עיבוד ארוך יחסית שנובע מעיבוד מיותר של אינפורמציה לא רלוונטית. אתגר שני נובע מקלט במצב בלורי (מרוח) שנגרם מתזוזה של המצלמה בזמן החשיפה של החיישן. ואתגר שלישי הוא לואו דינמיק ריינג' שמתבטא בסינוור חלק גדול מהקלט בפריים כתוצאה מצילום מקור אור חזק. שקף "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -101,6 +102,8 @@ class WhatIsEventCameraPart2(SlideScene):
                  An event camera has smart pixels that are all\
                      independent of each other - every time that a single pixel detects motion, in the form of brightness change, that pixel trigers an event.\
                          This means that only motion in measured in the scene. "
+        note = " מצלמת האיבנטים הראשונה הזמינה לרכישה נקראה דינמיק ויזיון סנסור או די וי אס בקיצור, היא הוצגה ב2008 על ידי מדען בשם טובי דל-ברוק מהאוניברסיטה של ציריך כחיישן חדשני שיודע למדוד תנועה בלבד בסצנה מצולמת. \
+            מצלמת איבנטים מורכבת מפקסלים חכמים בלתי תלויים אחד בשני. כל פיקסל כזה יודע לייצר איבנט בצורה אסינכרונית, כשהוא מגלה תנועה שמתבטאת בשינוי מהותי בערך הבהירות של אותו הפיקסל. שקף "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -131,6 +134,9 @@ class WhatIsEventCameraPart3(SlideScene):
                         On top you can see the output of a standard camera which are intensity frames at a constant time interval,\
                             while on the bottom you see the output of an event camera, which relates only to the moving black circle and represented as a spiral of events in space and time \
                                 where the red and blue colors represent the polarity of the event."
+        note = "האנימציה לפנינו נלקחה מהרצאה של דוידה סקרמוצה גם הוא מאוניברסיטת ציריך ובה ניתן ללמוד על ההבדלים המהותיים בין מצלמת פריימים למצלמת איבנטים.\
+            על הדיסק המסתובב מצוייר עיגול שחור. בחלק העליון ניתן לראות פלט ממצלמה סטנדרטית המייצרת פריימים כל אינטרוול זמן קבוע. בחלק התחתון \
+                ניתן לראות פלט ממצלמת איבנטים המתייחסת רק לתנוע בסצנה ובכך מייצרת ספירלה של איבנטים המיוצגים במרחב המיקום והזמן.   "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -203,6 +209,7 @@ class WhatIsEventCameraPart4(SlideScene):
     def construct(self):
         note = "When the disk stops rotating, there is no motion, hence the event camera does not transmit event\
             which results in a drastic reduction of band width compares to the standard camera that keepts putting out the same frame over and over again. "
+        note = "כשהדיסק מפסיק להסתובב , מצלמת האיבנטים מפסיקה לייצר ארועים וכמות המידע העובר יורד משמעותית (רק רעש נשאר) לעומת זאת המצלמה הסטנדרטית ממשיכה לייצר פריימים כרגיל."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -279,6 +286,9 @@ class WhatIsEventCameraPart5(SlideScene):
                     2. no motion blur.\
                         3. ultra low power consumption - an event camera on average consumes 1 milliWatt instead of 1 Watt in standard camera.\
                             4. a very high dynamic range which is 8 orders of magnitude superior to a standard camera"
+        note = "כשהדיסק מסתובב מהר מאד, ניתן לראות שבפריימים הרגילים מתגברת תופעת האנדר-סמפלינג ובנוסף התמונה מרוחה - בלורד אימג'. לעומת זאת מצלמת איבנטים אידאלית ממשיכה לייצר ספירלה של איבנטים. פה כדאי לציין שלמרות שמצלמות איבנטים קיימות בשוק רק מעט שנים יחסית התכונות שמצוינות פה בשקף\
+            גורמות להן להיות אלמנט מהותי בכל אפליקציה של ראייה ממוחשבת ורובוטיקה. רק אציין שמצלמת איבנטים היא בעלת צריכת אנרגיה נמוכה מאד, (1 מיליוואט במקום 1 וואט במצלמה רגילה) ,\
+                ובעלת טווח דינמי גבוהה מאד - פי 8 סדרי גודל יותר מאשר מצלמת פריימים."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -353,6 +363,8 @@ class Football(SlideScene):
             In this case the the frame are being output at a rate of 6 Hz while a window of 10 milliseconds of events is shown. A very important fact to notice is that the data rate pick value was measured at 30 kilo Hz\
                  which is that of a microcontroller - \
                 So we are talking of faster analysis of the data which is a great benefit especially in real-time applications."
+        note = "זאת דוגמה לפלט של מצלמת דייויס שמשלבת פריימים ואיבנטים. זה נראה כאילו האיבנטים מקדימים את הפריימים וזה כמובן נובע מההבדל באופן הפעולה והטמפורל רזולושן של שתי סוגי הפלטים. חשוב גם לציין שבוידאו הספציפי הזה מספר האיבנטים בשנייה הגבוה ביותר הוא 30 אלף  - \
+            כלומר מבחינת כמות מידע יש פה חסכון משמעותי שמשליך על חישובים מהירים יותר ובכך זמן תגובה - לייטנסי קצר יותר וזה משמעותי מאד כשמדובר במערכות זמן אמת."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -402,6 +414,7 @@ class Visualization(SlideScene):
                     On the right we see event in the form of frames, in this case each frame shows the events that were recorded in the last 10 milllseconds, \
                         However, this delta T parameter is configurable and we can go down in time to 1 micro-second.\
                             So how are events generated ???."
+        note = "הצגה של פלא ממצלמת איבנטים יכולה להיות בחלון זמן בגודל מסוים למשל 10 מילישניות כמו בצד ימין של המסך או במרחב הספייס-טיים כמו בצילום של המאוורר בצד שמאל "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -469,6 +482,7 @@ class EventModelPart1(SlideScene):
             By contrast, event camera outputs asynchronous events at microseconds resolution. \
                 An event is generated every time a single pixel detects a change in intensity value.\
                     "
+        note = " אז איך איבנטים מיוצגים בעצם? ובכן כאמור מצלמה סטנדרטית מוציאה פריימים באינטרוול זמן קבוע ואילו איבנטים נורים בצורה אסינכרונית כל פעם שפיקסל מגלה שינוי באינטנסיטי שלו וברזולוזיה של מיקרו שניות. שקף . "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -544,6 +558,7 @@ class EventModelPart2(SlideScene):
                         1. The timestamp at the time of the trigering. \
                             2. The x and y pixel coordinates in the sensor. \
                                 3. The event polarity (or sign) that get the value  of 1 or -1 for increase or decrease of brightness."
+        note = "כל איבנט הוא שלשה המורכבת מ: 1. טי - הטיים סטאפ שבו נורה האיבנט. 2. המיקום של אותו הפיקסל בחיישן. 3. הפולריטי או הקטביות של אותו איבנט כלומר 1 המייצג שינוי חיובי באינטנסיטי ו מינוס 1 עבור שינוי שלילי"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -576,6 +591,8 @@ class EventModelPart3(SlideScene):
                     Everytime an event is triggered, this subcircuit gets reset and the current value is stored.\
                     3. Then the difference signal is driven into two comparators that detect on and off brigntness changes. \
                         If the signal went up and pass an 'ON' threshold  - an 'ON' event is triggered and viceversa for an 'OFF' event in the bottom comparator."
+        note = "במבט היי לוול בדיגרמת המעגל של פיקסל בודד ניתן לראות שהוא מורגב מ3 חלקים עיקריים: 1. הקולטן - שהוא בעצם החלק החשוף לסביבה וחישוה הלוג של ערך האינטנסיטי שלו. 2. המעגל שאחראי לשמירת הפוטנליאל של האיבנט הקודם וחישוב ההפרש בינו לבין הפוטנציאל הנוכחי. 3. 2 קומפרטורים שיודעים ליצור איבנט \
+            חיובי או שלילי במידה שההפרש עבר ערך סף - טרשהולד שנקבע מראש."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -595,6 +612,7 @@ class EventModelPart4(SlideScene):
         note = "This graph describes the log Intensity at a Single Pixel x over time. \
             As you can see a POSITIVE RED event was triggered everytime the log intensity increased passed a positive contrast sentitivity threshold -  \
             And a NEGATIVE BLUE event was triggered everytime the log intensity descreased passed a negative contrast sentitivity threshold."
+        note = "בהתאמה ניתן לראות בגרף הזה התנהגות של פיקסל בודד לאורך זמן - איבנט אדום חיובי נוצר כך פעם שהפוטנציאל חצה מעל סף מסוים ואיבנט כחול שלילי נורה כל פעם שהפוטנציאל חצה תחת טרשהולד מסוים "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -620,6 +638,7 @@ class EventModelPart4(SlideScene):
 class EventModelPart5(SlideScene):
     def construct(self):
         note = "Here we see a list of Event camera manufacturers and some of their key properties, as you can see, their price is very high compared to a standard camera."
+        note = "בשקף הזה אנו רואים רשימה של יצרנים ומצלמות איבנטים זמינות בשוק - ניתן לראות שהמבחר לא גדול ושהמחיר לא אטרקיטיבי וזה מסביר למה קשה למצוא שימוש תעשייתי במצלמות הללו  - וכרגע על פניו  - נראה לי לפחות שההתמקדות היא יותר במחקר ובצד האקדמי  - "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -646,6 +665,7 @@ class EventModelPart6(SlideScene):
              and it posseses no intensity information - but only binary intensity changes, traditional vision algorithms that are used on regular frame data \
                  cannot be used on event camera data - \
             Therefor a paradigm shift needs to be applied and example of that is in the article : "
+        note = "לסיום ההקדמה בנושא מצלמות איבנטים - חשוב לציין - שמכיוון שמצלמות איבנטים הן אסינכרוניות ומייצרות פלט בינארי של שינוי חיובי או שלילי באינטנסיטי של פיקסל -  שקף  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -676,6 +696,7 @@ class EventModelPart7(SlideScene):
              and it posseses no intensity information - but only binary intensity changes, traditional vision algorithms that are used on regular frame data \
                  cannot be used on event camera data - \
             Therefor a paradigm shift needs to be applied and example of that is in the article : "
+        note = "אלגוריתמים קיימים של ראייה ממוחשבת שמיועדים לקלט מבוסס פריימים לא עובדים וצריך שינוי בפרדיגמה  - דוגמה לכך נראה במאמר הבא -שקף"
         self.create_note(note)
         for x in Header().get():
             self.add(x)

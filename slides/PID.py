@@ -1,4 +1,6 @@
 from os import wait
+
+from manim.mobject.mobject import T
 from manim_slide import *
 import cv2
 
@@ -10,7 +12,7 @@ class Header():
 
 class PID_Intro1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "זהו המאמר הנוסף שאסקור בסמינר שנכתב ב2020 על ידי חימינס ואחרים מאוניברסיטת סבייה - שכותרתו:"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -24,7 +26,7 @@ class PID_Intro1(SlideScene):
 
 class PID_Intro2(SlideScene):
     def construct(self):
-        note = "......"
+        note = " המאמר מדבר על מימוש נוירומורפי של בקר פי אי די  - פי אי די מסורתי הוא בקר המקבל ככניסה את אות השגיאה אי של טי המחושב כהפרש בין ערך רפרנס למשתנה תהליך. הבקר מוציא פקודת תיקון המבוססת על שלושה רכיבים - פרופורליונלי אינטגרלי ודיפרנציאלי   "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -40,7 +42,8 @@ class PID_Intro2(SlideScene):
         secondary_img = ImageMobject("../images/PID.png").scale(0.5)
 
         pid_eq = Tex(r"$u(t) = K_pe(T)+K_i\int_0^te(\tau)d\tau +K_d\frac{de(t)}{dt}$").scale(0.4).next_to(rec, DOWN)
-        self.play(FadeIn(rec, secondary_title, secondary_img, pid_eq))
+        pid_s = Tex(r"PID(s) = \frac{X(s)}{E(s)} = K_p + \frac{K_i}{s} + K_ds").scale(0.4).next_to(pid_eq, DOWN)
+        self.play(FadeIn(rec, secondary_title, secondary_img, pid_eq, pid_s))
 
 
 class PID_Intro3(SlideScene):
@@ -69,7 +72,7 @@ class PID_Intro3(SlideScene):
 
 class PID_Intro3(SlideScene):
     def construct(self):
-        note = "......"
+        note = "החלק הפרופורציונלי מכפיל את אות השגיאה בקבוע קיי פי  - כלומר חלק זה מוציא ערך הנמצא ביחס ישר לשגיאה. החיסרון בשימוש בחלק זה בלבד הוא קבלת שגיאת מצב מתמיד ."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -91,7 +94,7 @@ class PID_Intro3(SlideScene):
 
 class PID_Intro4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "החלק האינטגרלי מבצע אינטגרציה בזמן על אות השגיאה מתחילת המדידה ועד לרגע החישוב, ומכפיל את התוצאה בקבוע קיי איי. חלק זה מתייחס לערכי השגיאה מזמן תחילת המדידה עד לרגע החישוב, ובכך בעצם מושפע מערכי העבר של השגיאה"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -113,7 +116,7 @@ class PID_Intro4(SlideScene):
 
 class PID_Intro5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "החלק הדיפרנציאלי,  מבצע גזירה של אות השגיאה לפי הזמן, ומכפיל את התוצאה בקבוע קיי די, חלק זה כביכול מתייחס להתנהגות העתידית של אות השגיאה על ידי בדיקה של קצב השינוי שלה, או במילים אחרות- באיזו מהירות היציאה מתקרבת או מתרחקת מהערך הרצוי "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -135,7 +138,7 @@ class PID_Intro5(SlideScene):
 
 class PWMvsPFM1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בדרך כלל שליטה על עוצמה או מיקום של מנועים מתבצעת באמצעות שינוי המתח אחד החידושים שהחוקרים הציגו במאמר הוא שהם הפעילו ושלטו על המנועים של הרובוט באמצעות פולסים בלבד"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -154,7 +157,7 @@ class PWMvsPFM1(SlideScene):
 
 class PWMvsPFM2(SlideScene):
     def construct(self):
-        note = "......"
+        note = " פי דבליו אם או פולס וידט מודולאשיין היא שיטה שבה מתח המוצא נקבע לפי יחס הזמן שבו האות גבוה לבין מחזור הדיוטי סייקל של האות. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -179,7 +182,7 @@ class PWMvsPFM2(SlideScene):
 
 class PWMvsPFM3(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לעומת זאת פי אכ אם או פולס פריקוונסי מודולאשיין היא שיטה בה מתח המוצע נקבע ביחס ישיר לתדר האות. ככל שהתדר מהיר יותר מתח המוצא גבוה יותר "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -208,7 +211,7 @@ class PWMvsPFM3(SlideScene):
 
 class sPID(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לפנינו שרטוט הבקר המתואר במאמר. כאשר המידע העובר בכל המערכת מבוסס ספייקים. האות שהמערכת מקבלת אינו מהירות סיבוב של מנוע אלא מיקום של מפרק . הפי אייד בעצם יחושב במישור התדר לפי התמרת לפלס של המשוואה המקורית ממישור הזמן.. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -231,7 +234,7 @@ class sPID(SlideScene):
 
 class Block1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "נכיר את החלקים העיקריים שבונים את המערכת. תחילה ה רברסד ... שאחראי על המרה של ערך דיגיטלי לאות פי אכ אם. בקצרה ייצור הספייקים מתבצע באמצעות השוואה בין ערך הקלט לבין היפוך הביטים של שעון עולה. כל פעם שערך הקלט גדול מערך השעון נורה ספייק"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -256,7 +259,7 @@ class Block1(SlideScene):
 
 class Block2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "הבלוק הבא אחרי על אינגרציה של ספייקים. הוא מורכב משני חלקים החלק הראשון הוא קאונטר שסוכם ספייקים חיוביים ומחסיר ספייקים שליליים. הקאונטר מחובר לספייק גנראטור שראינו בשקף הקודם שמייצר ספייקים בתדר שתואם את הערך בקאונטר"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -288,7 +291,7 @@ class Block2(SlideScene):
 
 class Block3(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בגרף ניתן לראות את הסכימה המוצלחת של הספייקים כקשת האדומה. ספייקים חיוביים מוסיפים ערך לסכימה ושליליים מחסירים. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -312,7 +315,8 @@ class Block3(SlideScene):
 
 class Block4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "המעגל המתואר בדיאגרמת הבלוגים מבצע גזירה של אות השגיאה. הוא מורכב מלולאת משוב בין 2 מודולים המודול הראשון נקרא הולד אנד פייר והוא יודע למזג 2 אותות לאות חדש המייצג את ההפרש בינהם ואת הבלוק השני הכרנו כבר בשקף הקודם והוא מבצע אינטגרציה של ההפרשים - \
+            מה שמקבלים בסופו של דבר זה שבמוצא יתקבל אות בתדר המתאים לנגזרת השגיאה."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -343,7 +347,7 @@ class Block4(SlideScene):
 
 class Block5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בגרף ניתן לראות שהגזירה אכן מתבצעת למשל כאשר אין שינוי בתדר הנגזרת שווה לאפס."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -367,7 +371,8 @@ class Block5(SlideScene):
 
 class Block6(SlideScene):
     def construct(self):
-        note = "......"
+        note = " הבלוק האחרון שנכיר הוא בלוק שמעביר פקודה למנועים - כדי לאפשר תנועה של המנועים על הספייקים להיות רחבים יותר אחרת הם יחשבו כרעש ויסננו על ידי המנועים. הרעיון בגדול הוא להחזיק את הספייק כל עוד דאון קאונטר לא הגיע לאפס. בעצם הרוחב של הספייקים נקבע על ידי הערך בדאון קאונטר ולכן \
+            בלוק זה משמש כרכיב הפרופורציונלי של הבקר"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -401,7 +406,7 @@ class Block6(SlideScene):
 
 class Block7(SlideScene):
     def construct(self):
-        note = "......"
+        note = "מה שמביא אותנו לקבל נוסחא סופית לבקר  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -425,7 +430,7 @@ class Block7(SlideScene):
 
 class BioRob1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "כדי לבדוק את הבקר החוקרים חיברו אותו כחלק ממערכת הכוללת: 1. מחשב כדי לקנפג את המערכת ולקרוא נתונים בעזרת תוכנה שנקראת גיי איי אי אר. 2. זרוע רובוטית שכבר ארחיב עליה. ושני לוחות אפ פי גי אי שעליהם מומש הבקר. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -449,7 +454,7 @@ class BioRob1(SlideScene):
 
 class BioRob2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "הרובוט עצמו נקרא אד ניו רוב הוא בעל 4 דרגות חופש .מנועי די סי מורכבים בארבעת הג'וינטס שלו שמחוברים ללינקים באמצעות חבלים וקפיצים כדי לדמות איברים אלסטיים. בנוסף בכל ג'וינט שני חיישנים : 1. אינקודר כחיישן מיקום וחיישן נוסף שמודד את הזוית של אותו הג'וינט.  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -474,7 +479,7 @@ class BioRob2(SlideScene):
 
 class Experiment1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי הראשון נבחנה תנועה של כל מפרק ממינוס 90 ל 90 מעלות, הטווח  הפקודות שניתן הוא ממינוס 500 עד 500 בקפיצות של 50 ובכל שניה על השנייה. בגרף ניתן לראות שהפקודות התקבלו באופן תקין "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -498,7 +503,7 @@ class Experiment1(SlideScene):
 
 class Experiment2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "תוצאות הניסוי הראשון מראות שהבקר הצליח לגרום לרובוא לבצע את הפקודות בצורה סבירה ובשגיאת אר אם אס איי ממוצאת של 3.3 מעלות"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -519,7 +524,7 @@ class Experiment2(SlideScene):
 
 class Experiment3(SlideScene):
     def construct(self):
-        note = "......"
+        note = " הניסוי השני בדומה לניבוי הראשון רק שהפעם הפקודות היו להזיז מפרק בודד 4 פעמים מ0 ל90 מעלות ואז 4 פעמים ממינוס 90 ל0 ללא איפוס באמצע. את הזויות הפעם הם בדקו באמצעות ניתוח צילום וידאו ולא על ידי החיישנים כבקרה."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -543,7 +548,7 @@ class Experiment3(SlideScene):
 
 class Experiment4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "התוצאות שהתקבלו הן שגיאה של 1ץ61 מעלות בטווח 0 עד 90 ו3.3 מעלות ממינוס 90 ל0"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -565,7 +570,7 @@ class Experiment4(SlideScene):
 
 class Experiment5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי השלישי נבדק דייוק של הבקר לאורך מסלול בתלת מימד כאשר כל המפרקים של הרובוט קיבלו פקודת תנוע בטווח מינוס 200 ל200 בקפיצות של 1"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -587,7 +592,7 @@ class Experiment5(SlideScene):
 
 class Experiment6(SlideScene):
     def construct(self):
-        note = "......"
+        note = "תוצאות הניסוי מסוכמות לפניכם מעידות על שגיאה מצטברת של 2.39 אחוז במיקום של האנד אפקטור של הרובוט וב6.6 מעלות בממוצע בכל מפרק  - כל 10 איטרציות מצד לצד "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -625,7 +630,7 @@ class Experiment6(SlideScene):
 
 class Experiment7(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי הרביעי מתוך 5 נבדקה תנועה מעגלית בין 4 נקודות על מישור. לשם כך נוטרל מפרק הבסיס של הרובוט. "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -648,7 +653,7 @@ class Experiment7(SlideScene):
 
 class Experiment8(SlideScene):
     def construct(self):
-        note = "......"
+        note = "גם פה התוצאות מראות שהבקר מתפקד ומניע את הרובוט מנקודה לנקודה בהצלחה."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -670,7 +675,7 @@ class Experiment8(SlideScene):
 
 class Experiment9(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי האחרון החוקרים החליפו את הפי סי ברשת נוירונים המייצרת פקודות לרובוא ישירות בצורה של ספייקים. הרשת מומשה על מעבד נוירומורפי שנקרא דיינאפ אס אי . 4 ערכים שונים נבדקו בניסוי."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -696,7 +701,7 @@ class Experiment9(SlideScene):
 
 class Experiment10(SlideScene):
     def construct(self):
-        note = "......"
+        note = "התוצאות מראות שרשתות הנוירונים התמשקו בהצלחה למערכת ושהרובוט זז לזזיות הרצויות"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -721,7 +726,7 @@ class Experiment10(SlideScene):
 
 class Summary2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לסיכום במאמר החוקרים הצליחו: 1. לממש בקר פי איי די מבוסס ספייקים ובאמצעותו לשלוט ברובוט בעל 4 דרגות חופש. 2. להניע מנועים באמצעות פולס פריקוונסי מודוליישן 3. להתמשק לחומרה נוירומורפית בכדיי לקבל פקודות מרשת מוירונים ולא רק מפי סי. דיוק של 3.3 מעלות בתנועה של 90 למינוס 90 מעלות"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -734,7 +739,7 @@ class Summary2(SlideScene):
         
         secondary_title = Text("The researchers succeeded in:", color=BLUE).next_to(model_title, DOWN).scale(0.4)
 
-        bul0 = Text("Implementing a  spike-based PID motor controllers to control the position of the 4 joints of a robotic arm, called ED-BioRob.").scale(0.27).shift(1.5*UP+1.2*LEFT)
+        bul0 = Text("Implementing a spike-based PID motor controllers to control the position of the 4 joints of a robotic arm, called ED-BioRob.").scale(0.27).shift(1.5*UP+1.2*LEFT)
         bul1 = Text("Drive DC motors with Pulse Frequency Modulation signals, mimicking the motor-neurons of mammals.").scale(0.27).next_to(bul0, DOWN).align_to(bul0, LEFT)
         bul2 = Text("Demonstrating that the robot can be commanded through a population of silicon neurons (DYNAP-SE executing a spiking neural network)").scale(0.27).next_to(bul1, DOWN).align_to(bul1, LEFT)
         bul3 = Text("The sPID offers the worst RMSE of 3.3◦ after several iterations of joint movements from -90◦to 90◦.").scale(0.27).next_to(bul2, DOWN).align_to(bul2, LEFT)

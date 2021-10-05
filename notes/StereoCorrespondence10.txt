@@ -1,1 +1,1 @@
-<aside class="notes">This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2</aside>
+<aside class="notes">  - לשם כך החוקרים במאמר הציגו 2 אילוצים שאותם הם מישמים:            האילוץ הראשון מדבר על כך שלכל נקודה ממקור אחד קיימת לא יותר מהתאמה אחת.                והאילוץ השני מדבר על כך שפונקציית הדיספריטי חלקה כלומר שחוץ מבאזורים שהם גבולות של אובייקטים אנו מצפים לראות בתוך אותו האוביקט ערך דיספריטי דומה.</aside>

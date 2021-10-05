@@ -16,6 +16,7 @@ class StereoModelTitle(SlideScene):
     def construct(self):
         note = "This 2017 article by Osswald et al. describes a spiking neural network model of 3D perception\
              for event bases neuromorphic stereo vision systems"
+        note = "זהו מאמר מ2017 שנכתב על ידי מרק אוסוואלד ואחרים מאוניברסיטת ציריך ( כן יש שם קבוצה חזקה שמתעסקת ברובוטיקה וראייה ממוחשבת)  נקרא את הכותרת שלו: שקף"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -38,6 +39,7 @@ class StereoCorrespondence1(SlideScene):
                         but even if we consentrate on a single row - the solution is not that trivial because there might be more than a single match to a point. \
                             What we can do is to use a cost function like Sum of absolute differences of a window and not a point and return the position with the minimal cost.\
                                 but that still might not be enough as we shall see at demo part of the presentation..."
+        note = "הבעיה שאליה מתייחס המאמר הזה נקראת בעיית ההתאמה - באנגלית דה קוררספונדנס פראבלם. בהנתן שתי תמונות ממצלמת סטראו - שקף"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -45,13 +47,12 @@ class StereoCorrespondence1(SlideScene):
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
         self.add(name, source)
         correspondence_title = Text("The Correspondence Problem").shift(UP*3).scale(0.7)
-        self.play(FadeIn(correspondence_title))
         left_img = ImageMobject("../images/bawlingLeft.png").scale(0.5)
         left_txt = Text("Left Image").scale(0.3).next_to(left_img, UP)
         right_img = ImageMobject("../images/bawlingRight.png").scale(0.5).next_to(left_img, RIGHT)
         right_txt = Text("Right Image").scale(0.3).next_to(right_img, UP)
         stereo_pair = Group(left_img, left_txt, right_img, right_txt).center()
-        self.play(FadeIn(stereo_pair))
+        self.play(FadeIn(stereo_pair, correspondence_title))
 
 
 
@@ -68,6 +69,7 @@ class StereoCorrespondence2(SlideScene):
                         but even if we consentrate on a single row - the solution is not that trivial because there might be more than a single match to a point. \
                             What we can do is to use a cost function like Sum of absolute differences of a window and not a point and return the position with the minimal cost.\
                                 but that still might not be enough as we shall see at demo part of the presentation..."
+        note = "נרצה להצליח להתאים פיקסל או פיצר מסוים מהתמונה השמאלת לתמונה הימנית. אבל כפי שניתן לראות להתאמה הזאת מספר מועמדים"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -106,6 +108,7 @@ class StereoCorrespondence3(SlideScene):
                         but even if we consentrate on a single row - the solution is not that trivial because there might be more than a single match to a point. \
                             What we can do is to use a cost function like Sum of absolute differences of a window and not a point and return the position with the minimal cost.\
                                 but that still might not be enough as we shall see at demo part of the presentation..."
+        note = "הבעיה עוד נהיית קשה יותר כאשר אנו מנסים להתאים בין פיקסלים שמקורם באזורים חלקים או שאנו מנסים להתאים ממקור מוסתר או שלא קיים בשתי התמונות כמו מחלקו השמאלי של הכדור השחור "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -146,6 +149,7 @@ class StereoCorrespondence4(SlideScene):
                         but even if we consentrate on a single row - the solution is not that trivial because there might be more than a single match to a point. \
                             What we can do is to use a cost function like Sum of absolute differences of a window and not a point and return the position with the minimal cost.\
                                 but that still might not be enough as we shall see at demo part of the presentation..."
+        note = "כהקלה נניח שהתמונות עברו תהליך של רקטיפיקציה וכך בעצם פישטנו את הבעיה בכך שמעתה ניתן לומר שלפיסקל מתמונה אחת תמצא התאמה על אותו קו גובה - כלומר ההתאמה חולקת את אותה קואורדינטת וואי ולכם סיבוכיות החיפוש ירדה לשורה בגודל אן."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -183,6 +187,7 @@ class StereoCorrespondence5(SlideScene):
         note = "Looking at a single line at the same y value, from both images , we can improve our algorithm by minimizing a SAD cost function. \
             Looking for a match for the BLACK point at x index equal to 6, on the left image is done by calculating the sum of absolute differences between each pixel in a window \
                 of certain size"
+        note = " אם נסתכל על שתי שורות מאותו קואודינטת וואי - ונרצה למצוא התאמה לפיקסל בודד באינדקס איקס שווה ל6"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -226,7 +231,8 @@ class StereoCorrespondence5(SlideScene):
 
 class StereoCorrespondence6(SlideScene):
     def construct(self):
-        note = ">>>"
+        note = "  ניתן להשתמש בפונקצית מחיר מבוססת ס.א.ד. הפועלת על חלון בגודל דאבליו מסביב לאותו הפיקסל,"
+
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -264,7 +270,7 @@ class StereoCorrespondence6(SlideScene):
 
 class StereoCorrespondence7(SlideScene):
     def construct(self):
-        note = "After calculating the SAD value for every point on the right row we can see that the minimum cost is at index 4"
+        note = "בעצם מוחשב סכום ההפרשים האבסולוטי בין כל פיקסל במיקום מסוים בחלון המקור לפיסקל מתאים בחלון היעד,  כאשר את חלון היעד מדלגים לאורך ציר האיקס "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -320,7 +326,7 @@ class StereoCorrespondence7(SlideScene):
 
 class StereoCorrespondence8(SlideScene):
     def construct(self):
-        note = "This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2"
+        note = "ההפרש המינימלי הוא בעצם ההתאמה המקסימלית הנמצא באינקס איקס ימין ששווה ל4 - מה שאומר שההפרש בין האינדקס של המקור להתאמה הוא 6 פחות 4 ששווה ל2 וזהו בעצם ערך הדיספריטי"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -369,7 +375,7 @@ class StereoCorrespondence8(SlideScene):
 
 class StereoCorrespondence9(SlideScene):
     def construct(self):
-        note = "This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2"
+        note = "אבל למרות השימוש בפונציית המחיר הבעיה עדיין קשה - למשל מה אם היה יותר מערך מינימלי אחד ? אזורים מוסתרים בעלי תבניות חוזרות או איזורים של משטחים הומוגניים עדיין מהווים אתגר "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -405,7 +411,7 @@ class StereoCorrespondence9(SlideScene):
         diff = Text(str("2"), color=RED).scale(0.3).next_to(rect_right, UP*0.75).shift(LEFT*3.6)
         self.add(rect_right.next_to(diff, DOWN*0.75).shift(LEFT*0.01))
         disp = Tex(r"$disparity(10,6) = x_l - x_r = 6 - 4 = 2$").scale(0.6).shift(DOWN)
-        self.add(diff, disp)
+        self.add(disp)
 
         self.play(FadeOut(left_img_line, right_img_line,diff, disp, rect_left, sad_img,left_row_txt,right_row_txt, x, y, x_axis, y_axis, x_axis_txt, y_axis_txt ))
 
@@ -421,7 +427,9 @@ class StereoCorrespondence9(SlideScene):
 
 class StereoCorrespondence10(SlideScene):
     def construct(self):
-        note = "This means that the disparity of the point at position y = 10 x = 6 is the differnce in the x values and equal to 2"
+        note = "  - לשם כך החוקרים במאמר הציגו 2 אילוצים שאותם הם מישמים:\
+            האילוץ הראשון מדבר על כך שלכל נקודה ממקור אחד קיימת לא יותר מהתאמה אחת.\
+                והאילוץ השני מדבר על כך שפונקציית הדיספריטי חלקה כלומר שחוץ מבאזורים שהם גבולות של אובייקטים אנו מצפים לראות בתוך אותו האוביקט ערך דיספריטי דומה."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -463,7 +471,7 @@ class StereoCorrespondence10(SlideScene):
 
 class DepthFromDisparity1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "על השקפים הבאים אני אדלג בזריזות כיון שהם מראים איך אפשר לחשב עומק של אובייקט מתוך ערך הדיספריטי ותכונות אינטרינזיות ואקסטרינזיות של מצלמת הסטראו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -503,7 +511,7 @@ class DepthFromDisparity1(SlideScene):
 
 class DepthFromDisparity2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "על השקפים הבאים אני אדלג בזריזות כיון שהם מראים איך אפשר לחשב עומק של אובייקט מתוך ערך הדיספריטי ותכונות אינטרינזיות ואקסטרינזיות של מצלמת הסטראו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -548,7 +556,7 @@ class DepthFromDisparity2(SlideScene):
 
 class DepthFromDisparity3(SlideScene):
     def construct(self):
-        note = "......"
+        note = "על השקפים הבאים אני אדלג בזריזות כיון שהם מראים איך אפשר לחשב עומק של אובייקט מתוך ערך הדיספריטי ותכונות אינטרינזיות ואקסטרינזיות של מצלמת הסטראו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -594,7 +602,7 @@ class DepthFromDisparity3(SlideScene):
 
 class DepthFromDisparity4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "על השקפים הבאים אני אדלג בזריזות כיון שהם מראים איך אפשר לחשב עומק של אובייקט מתוך ערך הדיספריטי ותכונות אינטרינזיות ואקסטרינזיות של מצלמת הסטראו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -653,7 +661,7 @@ class DepthFromDisparity4(SlideScene):
 
 class DepthFromDisparity5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "על השקפים הבאים אני אדלג בזריזות כיון שהם מראים איך אפשר לחשב עומק של אובייקט מתוך ערך הדיספריטי ותכונות אינטרינזיות ואקסטרינזיות של מצלמת הסטראו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -717,7 +725,7 @@ class DepthFromDisparity5(SlideScene):
 
 class DepthMap1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בסופו של דבר אם נמצא התאמה לכל פיקסל ניתן יהיה לייצר תמונת עומק כמו בדוגמה שלפנינו"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -792,7 +800,7 @@ class DepthMap1(SlideScene):
 
 class SNNModel1(SlideScene):
     def construct(self):
-        note = "......"
+        note = " החוקרים פתרו את בעיית ההתאמה בעזרת רשת מוירונים מסוג ספייקינג ניורל נטוורק - שקף"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -801,15 +809,8 @@ class SNNModel1(SlideScene):
         map_title = Text("Depth map").shift(UP*3).scale(0.7)
 
         self.add(name, source, map_title)
-
-        left_img = ImageMobject("../images/bawlingLeft.png").scale(0.5)
-        left_txt = Text("Left Image").scale(0.3).next_to(left_img, UP)
-        right_img = ImageMobject("../images/bawlingDisp.png").scale(0.5).next_to(left_img, RIGHT)
-        right_txt = Text("Depth Map").scale(0.3).next_to(right_img, UP)
-        stereo_pair = Group(left_img, left_txt, right_img, right_txt).center()
-        self.add(stereo_pair)
         model_title = Text("The spiking stereo neural network model").shift(UP*3).scale(0.65)
-        self.play(ReplacementTransform(map_title, model_title), FadeOut(stereo_pair))
+        self.play(ReplacementTransform(map_title, model_title))
         coor_img = ImageMobject("../images/coordinate1.png").scale(1.3).center()
         coordinate_title = Text("The coordinate system of the network:", color=BLUE).next_to(model_title, DOWN).scale(0.4)
         x_def = Tex(r"$x = x_R+x_L$").next_to(coor_img, LEFT).scale(0.5)
@@ -818,7 +819,7 @@ class SNNModel1(SlideScene):
 
 class SNNModel2(SlideScene):
     def construct(self):
-        note = "......"
+        note = " הם מיפו כל זוג פיקסלים אפשרי באותו קו אפיפולרי -  (כלומר בעלי אותו ערך על ציר הוואי) לנוירון ברשת המיוצג על ידי השלשה: איקס וואי ודי כאשר וואי הוא אותו קו גובה של הפיקסלים , איקס הוא סכום האינדקסים של ה2 הפיקסלים ודי הוא ההפרש בינהם כלומר הדיספריטי"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -856,7 +857,8 @@ class SNNModel3(SlideScene):
 
 class SNNModel4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בשרטוט שלפנינו מוצג מבנה המודל עבור שכבה אחת של פיקסלים - ניתן לראות שהוא מחולק לשלושה חלקים - החלק הראשון הוא הקלט לרשת בצורת ספייקים ממצלמת סטראו מבוססת איבנטים . החלק השני הוא רשת של נוירוניום בצורה של גריד תלת מימדי שנקרא הקואיסידנס דיטקטורז שמייצרת ספייקים \
+            שמגיעים לחלק השלישי והאחרון הוא הדיספריטי דטקטורז.   "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -871,7 +873,7 @@ class SNNModel4(SlideScene):
 
 class SNNModel5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "אנחנו כבר יודעים כיצד נראה הקלט ממצלמת האיבנטים אז עתה אסביר את אופן פעולת הרשת בחלק של הקואינסידס דטקטורז"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -888,7 +890,7 @@ class SNNModel5(SlideScene):
 
 class SNNModel6(SlideScene):
     def construct(self):
-        note = "......"
+        note = " הנוירונים הממומשים ברשת נקראים ליקי אינטגרייט אנד פייר ניורונז המיוצגים על ידי הפונקציה הדיפרנציאלית בצד שמאל של המסך. בגרף נוכל לראות התנהגות של נוירון במח שיורה ספייק כאשר הפוטנציאל שלו חוצה סף ולאחר מכן דועך ומתייצב חזרה על ערכו ההתחלתי. התנהגות זו מותאמת במודל בעזרת הפרמטרים טאו וטטא.  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -908,7 +910,7 @@ class SNNModel6(SlideScene):
 
 class SNNModel7(SlideScene):
     def construct(self):
-        note = "......"
+        note = "כאמור לנוירון מחוברים 2 המצלמות כך שערך הפוטנציאל שלו משתנה מספייקים שאותם הוא מקבל ומיוצגים על ידי פונציית הדיראק ברכבת ההלמים במשוואה הימנית"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -931,7 +933,7 @@ class SNNModel7(SlideScene):
 
 class SNNModel8(SlideScene):
     def construct(self):
-        note = "......"
+        note = " הרעיון הוא שזוג איבנטים (אחד מכל מצלמה) שהתקבלו באותו נוירון מעידים על סיכוי להתאמה ופה בפעם הראשונה ניתן לראות שימוש במימד הזמן כיון שהחוקרים הגדירו פרמטר טיים סנסיטיביטי שמגדיר מהו אינטרוול הזמן שבין זוג איבנטים המייצר ספייק "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -958,7 +960,7 @@ class SNNModel8(SlideScene):
 
 class SNNModel9(SlideScene):
     def construct(self):
-        note = "......"
+        note = "הספייקים שמייצרים הנוירונים מהקואינסידנס דטקטורז עוברים לדיספריטי דטקטורז"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -975,7 +977,7 @@ class SNNModel9(SlideScene):
 
 class SNNModel10(SlideScene):
     def construct(self):
-        note = "......"
+        note = "גם בדיספריטי דטקטורז הנוירונים הם מסוג ליקי אינטגרייט אנד פייר  אך בעלי ערך סף וערך דעיכה שונים מאשר בקואינסידנס דטקטורז"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -992,7 +994,8 @@ class SNNModel10(SlideScene):
 
 class SNNModel11(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לכל נוירון דיספריטי ממופים נוירונים משני מישורים במחרב הקואיסיננס. המישור סי פלוס - הוא המישור האדום בשרטוט מקורו בנוירונים בעלי אותו ערך דיספריטי בהתאמה לאילוץ המדבר על כך שפונקציית הדיספריטי חלקה - ספייקים ממישור זה חיוביים ומוסיפים לפוטנציאל של הנוירון.\
+              והמישור סי מינוס - המישור הכחול - ספייקים מהמישור הזה הם בעלי אותו ערך איקס ולכן מעידים על התכנות להתאמה שגויה. ספייקים ממישור זה מקטינים את הפוטנציא של הנוירון."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1017,7 +1020,7 @@ class SNNModel11(SlideScene):
 
 class SNNModel12(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בסופו של דבר לנוירון מסוים יכולה להיות לא יותר מהתאמה אחת - וכדי לממש את האילוץ הזה, כל נוירון ברשת מחובר לנוירון מתחרה . "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1035,7 +1038,7 @@ class SNNModel12(SlideScene):
 
 class SNNModel13(SlideScene):
     def construct(self):
-        note = "......"
+        note = "נוירון דיספריטי שנורה ראשון מעיד על כך שקיבל תמיכה רבה יותר, בצורת ספייקים חיוביים מנוירונים ברשת הקואינסידנס. כדי לוודא זהו הנוירון היחיד שנורה עבור אותם פיקסלים מימשו החוקרים מנגנון של ווינר טייקס אול שבו בעצם נוירון שנורה ראשון מקטין מאד את הפוטנציאל של נוירונים מתחרים (על אותו ליין אוף סייט)"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1056,7 +1059,7 @@ class SNNModel13(SlideScene):
 
 class SNNModel14(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לשם כך פונקציית הפוטנציאל עודכנה במקור זרם נוסף שלילי המגיע מנוירונים מתחרים"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1080,7 +1083,7 @@ class SNNModel14(SlideScene):
 
 class SNNModel15(SlideScene):
     def construct(self):
-        note = "......"
+        note = "המוצא הסופי של המודל תלוי במספר גורמים.אי פלוס די הוא איבנט שנורה ממרחב הדיספריטי די ובזמן טי  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1102,7 +1105,7 @@ class SNNModel15(SlideScene):
 
 class SNNModel16(SlideScene):
     def construct(self):
-        note = "......"
+        note = " אי פלוס סי הוא איבנט שנורה ממרחב הקואינסידנס סי ובזמן טי"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1128,7 +1131,7 @@ class SNNModel16(SlideScene):
 
 class SNNModel17(SlideScene):
     def construct(self):
-        note = "......"
+        note = "אם כך סי פלוס ודי פלוס הם קבוצת איבנטים שנורו משני המרחבים בזמן טי והחיתוך בינהם - כלומר איבנטים שמיקומם זהה , ערך הדיספריטי שלהם זהה והזמן שבהם הם נורו זהה מגדירים את הקבוצה או פלוס"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1159,7 +1162,7 @@ class SNNModel17(SlideScene):
 
 class SNNModel18(SlideScene):
     def construct(self):
-        note = "......"
+        note = "והמוצא הסופי של המודל מוגדר להיות אותם איבנטים שנורו יחד אך אחרי סינון נוסף שמאלץ אותם להיות בעלי אותה קטביות חיובית או שלילית ממצלמת האיבנטים"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
@@ -1193,13 +1196,13 @@ class SNNModel18(SlideScene):
 
 class Results1(SlideScene):
     def construct(self):
-        note = "......"
+        note = "כדי לבדוק את המודל נערכו מספר ניסויים כאשר הגראונד טרוט להשוואה נמדד באמצעות המיקרוסופט קינקט"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
         secondary_title = Text("Ground Truth using the Microsoft Kinnect", color=BLUE).next_to(model_title, DOWN).scale(0.4)
@@ -1208,13 +1211,13 @@ class Results1(SlideScene):
 
 class Results2(SlideScene):
     def construct(self):
-        note = "......"
+        note = "סימולציה של הרשת התבצעה על מחשב איי 7 רגיל , כאשר הקלט הגיע זוג די וי ארים ברזולוציה 180 על 180. כדי להקטין את מספר הנוירונים ברשת ל4 מליון ערך הדיספריטי האפשרי צומצם לטווח 0 עד 40. בכל זאת מספר לא מבוטל של 1 נקודה 2 איבנטים נוצרו בצילום של סצינת הליכה בת 4 שניות."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1234,13 +1237,14 @@ class Results2(SlideScene):
 
 class Results3(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בסצנה הראשונה צולם אדם המזיז את ראשו מצד לצד. באיי רואים את האיבנטים מהמצלמה השמאלית והימנית. בי - רואים את האיבנטים ללא הפילטור האחרון כלומר ללא חיתוך עם מרחב הקואינסידנס וללא התחשבות בפולריטי של האיבנטים. בסי רואים את הפלט הסופי כלומר לאחר פילטור ובדי את האיבנטים מהמצלמה השמאלית על גבי מפת עומק המיוצרת מהקינקט.\
+            ניתן לראות בגרף העליון שהשגיאה הממוצאת קטנה מיחידת דיספריטי ושכמות האיבנטים בכל זמן לא עולה על 10 אלף."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1252,13 +1256,13 @@ class Results3(SlideScene):
 
 class Results4(SlideScene):
     def construct(self):
-        note = "......"
+        note = "תוצאות דומות ניתן לראות בסצנה הבאה בה שני אנישם חוצים מול המצלמה בעומקים שונים. חושב לציין שמספר האיבנטים גדל בהתאמה לכך שיש תנועה רבה יותר בסצנה."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1270,13 +1274,13 @@ class Results4(SlideScene):
 
 class Results5(SlideScene):
     def construct(self):
-        note = "......"
+        note = "גם בסצנה השלישית ובה אדם המתאמן בלחימה אמנותית, ניתן לראות הצלחה ותוצאות דומות."
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1288,13 +1292,13 @@ class Results5(SlideScene):
 
 class Results6(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לסיכום התוצאות ניתן לראות כי כל הסצנות מאופיינות בגרף בצורת חצי פעמון גבוה מה שמעיד על שגיאה נמוכה בדיספריטי במספר רב גבוהה של איבנטים. הסצנה שבה הצליח המודל ביותר היא סצינת ההליכה - החוקרים טוענים שההצלחה נובעת בכך שהתנועה היתה פרונטו פרלל כלומר בקו מקביל לעדשות המצלמה.  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1307,13 +1311,13 @@ class Results6(SlideScene):
 
 class Results7(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי נוסף החוקרים בחנו את היכול של המודל לזהות אובייקט בסטראוגרמה דינמית - כלומר שהאובייקט בתנועה"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1325,13 +1329,13 @@ class Results7(SlideScene):
 
 class Results8(SlideScene):
     def construct(self):
-        note = "......"
+        note = "מצד ימין תוכלו לראות את הקובייה החלולה שהצליח המודל לזהות - המקור משמאל"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1346,13 +1350,15 @@ class Results8(SlideScene):
 
 class Results9(SlideScene):
     def construct(self):
-        note = "......"
+        note = "בניסוי האחרון החוקרים מימשו את הרשת על חומרה נוירומורפית, מפאת הצורך בכמות גדולה של נוירונים הם חילקו את המימוש לשתי חומרות - את החלק של הדיספיריטי דיטקשון הם מימשו על חומרה בשם רולז ו את החלק של הקואינסינס הם מימשו על אפ פי גי אייץ\
+            הסטימולוס היה לוח ועליו סטראוגרמה אותה הם הזיזו מול המצלמה בעומקים שונים בטווח הדיספריטי מינוס 10 ל 10.\
+                ניתן לראות בראסטר פלוט לפי כמות האיבנטים שצבועים באדום שלרוב המודל הצליח לקלוע לדיספריטי הנכון.  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1373,13 +1379,13 @@ class Results9(SlideScene):
 
 class Results10(SlideScene):
     def construct(self):
-        note = "......"
+        note = " החוקרים גם השוו את צריכת האנרגיה של המימוש הנירומורפי למימוש של אלגוריתם מבוסס ס א ד על מיקרו-קונטרולר יעיל אנרגטית. ניתן לראות בטבלה שחומרה נוירומורפית יעילה כמעט פי מאה מאשר חומרה רגילה  .  "
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
@@ -1399,13 +1405,13 @@ class Results10(SlideScene):
 
 class Results10(SlideScene):
     def construct(self):
-        note = "......"
+        note = "לסיכום המאמר הראשון החוקרים הצליחו ל: 1. להשתמש במצלמת איבנטים כקלט לרשת הנוירונים. 2 לפתור את בעיית ההתאמה עם אחוז דיוק גבוה. 3 לממש את הרשת על חומרה נוירומורפית. 4. להשוות בין צריכת אנרגיה של חומרה נוירומורפית לחומרה קונבנציונלית"
         self.create_note(note)
         for x in Header().get():
             self.add(x)
         name = Text("Guy Tordjman", font_size=11).shift(3.2*DOWN+6.3*LEFT)
         source = Text("Osswald et al. A spiking neural network model of 3D perception for event-based neuromorphic stereo vision systems (2017).", font_size=11).shift(3.2*DOWN+2*RIGHT)
-        model_title = Text("Results and model evaluation").shift(UP*3).scale(0.65)
+        model_title = Text("Experiments, Results and model evaluation").shift(UP*3).scale(0.65)
 
         self.add(name, source, model_title)
 
